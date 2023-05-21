@@ -1541,9 +1541,9 @@ GameObject:
   - component: {fileID: 1691239816}
   - component: {fileID: 1691239815}
   - component: {fileID: 1691239814}
+  - component: {fileID: 1691239811}
   - component: {fileID: 1691239813}
   - component: {fileID: 1691239812}
-  - component: {fileID: 1691239811}
   m_Layer: 0
   m_Name: Que Ball
   m_TagString: Untagged
@@ -1565,7 +1565,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _rb: {fileID: 1691239812}
   _camera: {fileID: 330585545}
-  _hitForce: 40
+  _forceMultiplier: 1.5
+  minForceInput: 5
+  maxForceInput: 150
+  minForceOutput: 0.2
+  maxForceOutput: 30
 --- !u!54 &1691239812
 Rigidbody:
   m_ObjectHideFlags: 0

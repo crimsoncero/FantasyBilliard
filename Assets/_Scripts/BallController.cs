@@ -1,6 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
+using Unity.VisualScripting;
+using UnityEditor.Build.Content;
 using UnityEngine;
+
 
 public class BallController : MonoBehaviour
 {
@@ -8,7 +12,16 @@ public class BallController : MonoBehaviour
     [SerializeField] private Camera _camera;
 
 
-    [SerializeField] private float _hitForce = 20;
+    [SerializeField] private float _forceMultiplier = 20;
+
+
+    [Header("Force Mapping")]
+    [SerializeField] private float minForceInput;
+    [SerializeField] private float maxForceInput;
+    [SerializeField] private float minForceOutput;
+    [SerializeField] private float maxForceOutput;
+
+
 
     private Vector3 _currentHitPoint;
     private bool _isAiming = false;
@@ -34,7 +47,6 @@ public class BallController : MonoBehaviour
         if (Input.GetMouseButton(0))
         {
             _currentHitPoint = Input.mousePosition;
-            Debug.Log("Hit Point: " + _currentHitPoint);
         }
 
         if(Input.GetMouseButtonUp(0) && _isAiming )
@@ -44,17 +56,36 @@ public class BallController : MonoBehaviour
         }
     }
 
-    void Shoot()
+
+
+    Vector3 CalculateShot()
     {
         //Calculate hit vector
         Vector3 ballScreenPos = _camera.WorldToScreenPoint(transform.position);
         ballScreenPos.z = 0;
         Debug.Log("Ball Point: " + ballScreenPos);
-        Vector3 _hitDirection = (ballScreenPos - _currentHitPoint).normalized;
-        Debug.Log("Hit Direction: " + _hitDirection);
+        Vector3 hitVector = (ballScreenPos - _currentHitPoint);
+        hitVector = new Vector3(hitVector.x, hitVector.z, hitVector.y);
+        Debug.Log("Initial Vector: " + hitVector);
 
-        _hitDirection = new Vector3(_hitDirection.x, _hitDirection.z, _hitDirection.y);
+        Vector3 dirVector = hitVector.normalized;
+        Debug.Log("Direction: " + dirVector);
 
-        _rb.AddForce(_hitDirection * _hitForce, ForceMode.Impulse);
+
+        float x = Mathf.Clamp(hitVector.x, minForceInput, maxForceInput);
+        float y = Mathf.Clamp(hitVector.y, minForceInput, maxForceInput);
+        float force = Vector2.Distance(Vector2.zero, new Vector2(x, y));
+
+        force = math.remap(minForceInput, maxForceInput, minForceOutput, maxForceOutput,force);
+        Debug.Log("Force: " + force);
+
+        return dirVector * force;
+    }
+
+    void Shoot()
+    {
+        Vector3 hitVector = CalculateShot();
+        Debug.Log("Hit Vector: " + hitVector);
+        _rb.AddForce(hitVector * _forceMultiplier, ForceMode.Impulse);
     }
 }
