@@ -12,10 +12,11 @@ public class BallController : MonoBehaviour
     [SerializeField] private Camera _camera;
 
 
-    [SerializeField] private float _forceMultiplier = 20;
+   
 
 
     [Header("Force Mapping")]
+    [SerializeField] private float _forceMultiplier = 1.5f;
     [SerializeField] private float minForceInput;
     [SerializeField] private float maxForceInput;
     [SerializeField] private float minForceOutput;
