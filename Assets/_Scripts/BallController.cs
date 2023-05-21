@@ -65,6 +65,7 @@ public class BallController : MonoBehaviour
         Vector3 ballScreenPos = _camera.WorldToScreenPoint(transform.position);
         ballScreenPos.z = 0;
         Debug.Log("Ball Point: " + ballScreenPos);
+        Debug.Log("Hit Point: " + _currentHitPoint);
         Vector3 hitVector = (ballScreenPos - _currentHitPoint);
         hitVector = new Vector3(hitVector.x, hitVector.z, hitVector.y);
         Debug.Log("Initial Vector: " + hitVector);
@@ -73,9 +74,9 @@ public class BallController : MonoBehaviour
         Debug.Log("Direction: " + dirVector);
 
 
-        float x = Mathf.Clamp(hitVector.x, minForceInput, maxForceInput);
-        float y = Mathf.Clamp(hitVector.y, minForceInput, maxForceInput);
-        float force = Vector2.Distance(Vector2.zero, new Vector2(x, y));
+        float x = Mathf.Clamp(Mathf.Abs(hitVector.x), minForceInput, maxForceInput);
+        float z = Mathf.Clamp(Mathf.Abs(hitVector.z), minForceInput, maxForceInput);
+        float force = Vector2.Distance(Vector2.zero, new Vector2(x, z));
 
         force = math.remap(minForceInput, maxForceInput, minForceOutput, maxForceOutput,force);
         Debug.Log("Force: " + force);
