@@ -175,7 +175,7 @@ Material:
     - _ZWrite: 1
     - _ZWriteControl: 0
     m_Colors:
-    - _Emission: {r: 3.240411, g: 3.240411, b: 3.240411, a: 0}
+    - _Emission: {r: 2.9960785, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!21 &57299066
 Material:
@@ -229,7 +229,7 @@ Material:
     - _ZWrite: 1
     - _ZWriteControl: 0
     m_Colors:
-    - _Emission: {r: 3.240411, g: 3.240411, b: 3.240411, a: 0}
+    - _Emission: {r: 0.84705883, g: 0, b: 4, a: 0}
   m_BuildTextureStacks: []
 --- !u!1001 &86566616
 PrefabInstance:
@@ -238,6 +238,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 204734753816146322, guid: 60c64f3ac4ba1704587f260d8b773c26,
+        type: 3}
+      propertyPath: _material
+      value: 
+      objectReference: {fileID: 141124234}
     - target: {fileID: 1184155527956867800, guid: 60c64f3ac4ba1704587f260d8b773c26,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -362,7 +367,7 @@ Material:
     - _ZWrite: 1
     - _ZWriteControl: 0
     m_Colors:
-    - _Emission: {r: 3.240411, g: 3.240411, b: 3.240411, a: 0}
+    - _Emission: {r: 0, g: 0.29803923, b: 4, a: 0}
   m_BuildTextureStacks: []
 --- !u!1001 &137380530
 PrefabInstance:
@@ -460,7 +465,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _material
       value: 
-      objectReference: {fileID: 759974846}
+      objectReference: {fileID: 57299066}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec3c92d0c9c04ac44a000509531a0ced, type: 3}
 --- !u!21 &141124234
@@ -516,114 +521,6 @@ Material:
     m_Colors:
     - _Emission: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
---- !u!21 &152306308
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Pos Ball Material (Instance)
-  m_Shader: {fileID: -6465566751694194690, guid: 1622aceee2939074bb3e05abd24585df,
-    type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 2
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2000
-  stringTagMap:
-    RenderType: Opaque
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - unity_Lightmaps:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_LightmapsInd:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_ShadowMasks:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _AlphaClip: 0
-    - _Blend: 0
-    - _CastShadows: 1
-    - _Cull: 2
-    - _DstBlend: 0
-    - _Fresnel_Power: 5
-    - _QueueControl: 0
-    - _QueueOffset: 0
-    - _ReceiveShadows: 1
-    - _SrcBlend: 1
-    - _Surface: 0
-    - _WorkflowMode: 1
-    - _ZTest: 4
-    - _ZWrite: 1
-    - _ZWriteControl: 0
-    m_Colors:
-    - _Emission: {r: 3.240411, g: 3.240411, b: 3.240411, a: 0}
-  m_BuildTextureStacks: []
---- !u!21 &154467321
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Pos Ball Material (Instance)
-  m_Shader: {fileID: -6465566751694194690, guid: 1622aceee2939074bb3e05abd24585df,
-    type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 2
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2000
-  stringTagMap:
-    RenderType: Opaque
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - unity_Lightmaps:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_LightmapsInd:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_ShadowMasks:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _AlphaClip: 0
-    - _Blend: 0
-    - _CastShadows: 1
-    - _Cull: 2
-    - _DstBlend: 0
-    - _Fresnel_Power: 5
-    - _QueueControl: 0
-    - _QueueOffset: 0
-    - _ReceiveShadows: 1
-    - _SrcBlend: 1
-    - _Surface: 0
-    - _WorkflowMode: 1
-    - _ZTest: 4
-    - _ZWrite: 1
-    - _ZWriteControl: 0
-    m_Colors:
-    - _Emission: {r: 3.240411, g: 3.240411, b: 3.240411, a: 0}
-  m_BuildTextureStacks: []
 --- !u!21 &223624196
 Material:
   serializedVersion: 8
@@ -675,7 +572,7 @@ Material:
     - _ZWrite: 1
     - _ZWriteControl: 0
     m_Colors:
-    - _Emission: {r: 0, g: 0, b: 0, a: 0}
+    - _Emission: {r: 4, g: 0, b: 1.3333334, a: 0}
   m_BuildTextureStacks: []
 --- !u!1001 &243988835
 PrefabInstance:
@@ -703,7 +600,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _material
       value: 
-      objectReference: {fileID: 965822402}
+      objectReference: {fileID: 1174339761}
     - target: {fileID: 1765154413025480422, guid: f3a92ed3aadc58b43b6ffdd805290d18,
         type: 3}
       propertyPath: m_RootOrder
@@ -920,7 +817,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _material
       value: 
-      objectReference: {fileID: 659671916}
+      objectReference: {fileID: 94823181}
     - target: {fileID: 3539532228074841770, guid: aa4e56aa4df30ae41b728c5d45d227bc,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1044,7 +941,7 @@ Material:
     - _ZWrite: 1
     - _ZWriteControl: 0
     m_Colors:
-    - _Emission: {r: 0, g: 0, b: 0, a: 0}
+    - _Emission: {r: 0.03137255, g: 2.682353, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!1001 &385842888
 PrefabInstance:
@@ -1212,6 +1109,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3659203656240674724, guid: 4d18135e159260342bc993bae4f0ebb2,
+        type: 3}
+      propertyPath: _material
+      value: 
+      objectReference: {fileID: 223624196}
     - target: {fileID: 8513407055792629161, guid: 4d18135e159260342bc993bae4f0ebb2,
         type: 3}
       propertyPath: m_Name
@@ -1391,7 +1293,7 @@ Material:
     - _ZWrite: 1
     - _ZWriteControl: 0
     m_Colors:
-    - _Emission: {r: 3.240411, g: 3.240411, b: 3.240411, a: 0}
+    - _Emission: {r: 4, g: 0, b: 1.3333334, a: 0}
   m_BuildTextureStacks: []
 --- !u!1001 &492278131
 PrefabInstance:
@@ -1429,7 +1331,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _material
       value: 
-      objectReference: {fileID: 1237166115}
+      objectReference: {fileID: 475248467}
     - target: {fileID: 5927137502488080635, guid: 17d62aa258d3e484293eb3304008afcd,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1544,61 +1446,7 @@ Material:
     - _ZWrite: 1
     - _ZWriteControl: 0
     m_Colors:
-    - _Emission: {r: 3.240411, g: 3.240411, b: 3.240411, a: 0}
-  m_BuildTextureStacks: []
---- !u!21 &647511425
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Pos Ball Material (Instance)
-  m_Shader: {fileID: -6465566751694194690, guid: 1622aceee2939074bb3e05abd24585df,
-    type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 2
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2000
-  stringTagMap:
-    RenderType: Opaque
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - unity_Lightmaps:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_LightmapsInd:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_ShadowMasks:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _AlphaClip: 0
-    - _Blend: 0
-    - _CastShadows: 1
-    - _Cull: 2
-    - _DstBlend: 0
-    - _Fresnel_Power: 5
-    - _QueueControl: 0
-    - _QueueOffset: 0
-    - _ReceiveShadows: 1
-    - _SrcBlend: 1
-    - _Surface: 0
-    - _WorkflowMode: 1
-    - _ZTest: 4
-    - _ZWrite: 1
-    - _ZWriteControl: 0
-    m_Colors:
-    - _Emission: {r: 3.240411, g: 3.240411, b: 3.240411, a: 0}
+    - _Emission: {r: 2.9056604, g: 0.4474672, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!1 &652563538
 GameObject:
@@ -1653,60 +1501,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &659671916
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Pos Ball Material (Instance) (Instance) (Instance)
-  m_Shader: {fileID: -6465566751694194690, guid: 1622aceee2939074bb3e05abd24585df,
-    type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 2
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2000
-  stringTagMap:
-    RenderType: Opaque
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - unity_Lightmaps:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_LightmapsInd:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_ShadowMasks:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _AlphaClip: 0
-    - _Blend: 0
-    - _CastShadows: 1
-    - _Cull: 2
-    - _DstBlend: 0
-    - _Fresnel_Power: 5
-    - _QueueControl: 0
-    - _QueueOffset: 0
-    - _ReceiveShadows: 1
-    - _SrcBlend: 1
-    - _Surface: 0
-    - _WorkflowMode: 1
-    - _ZTest: 4
-    - _ZWrite: 1
-    - _ZWriteControl: 0
-    m_Colors:
-    - _Emission: {r: 3.240411, g: 3.240411, b: 3.240411, a: 0}
-  m_BuildTextureStacks: []
 --- !u!1001 &661119006
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1832,7 +1626,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _material
       value: 
-      objectReference: {fileID: 152306308}
+      objectReference: {fileID: 42108523}
     - target: {fileID: 1425106508302602934, guid: 3d57375d228885a40a83fb951c407270,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -2002,60 +1796,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 759226529}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!21 &759974846
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Pos Ball Material (Instance)
-  m_Shader: {fileID: -6465566751694194690, guid: 1622aceee2939074bb3e05abd24585df,
-    type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 2
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2000
-  stringTagMap:
-    RenderType: Opaque
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - unity_Lightmaps:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_LightmapsInd:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_ShadowMasks:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _AlphaClip: 0
-    - _Blend: 0
-    - _CastShadows: 1
-    - _Cull: 2
-    - _DstBlend: 0
-    - _Fresnel_Power: 5
-    - _QueueControl: 0
-    - _QueueOffset: 0
-    - _ReceiveShadows: 1
-    - _SrcBlend: 1
-    - _Surface: 0
-    - _WorkflowMode: 1
-    - _ZTest: 4
-    - _ZWrite: 1
-    - _ZWriteControl: 0
-    m_Colors:
-    - _Emission: {r: 3.240411, g: 3.240411, b: 3.240411, a: 0}
-  m_BuildTextureStacks: []
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -2202,59 +1942,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 907453635}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!21 &965822402
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Neg Ball Shader (Instance)
-  m_Shader: {fileID: -6465566751694194690, guid: d4c7972a2ed0fc340a1f8e8fa143dab3,
-    type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 2
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2000
-  stringTagMap:
-    RenderType: Opaque
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - unity_Lightmaps:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_LightmapsInd:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_ShadowMasks:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _AlphaClip: 0
-    - _Blend: 0
-    - _CastShadows: 1
-    - _Cull: 2
-    - _DstBlend: 0
-    - _QueueControl: 0
-    - _QueueOffset: 0
-    - _ReceiveShadows: 1
-    - _SrcBlend: 1
-    - _Surface: 0
-    - _WorkflowMode: 1
-    - _ZTest: 4
-    - _ZWrite: 1
-    - _ZWriteControl: 0
-    m_Colors:
-    - _Emission: {r: 2, g: 0, b: 1.4091225, a: 0}
-  m_BuildTextureStacks: []
 --- !u!1001 &1030764969
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2341,7 +2028,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _material
       value: 
-      objectReference: {fileID: 1733791619}
+      objectReference: {fileID: 1705823798}
     - target: {fileID: 8109441267607261588, guid: 49651373f7d75774fbdea2171776da3e,
         type: 3}
       propertyPath: m_Name
@@ -2401,7 +2088,7 @@ Material:
     - _ZWrite: 1
     - _ZWriteControl: 0
     m_Colors:
-    - _Emission: {r: 3.240411, g: 3.240411, b: 3.240411, a: 0}
+    - _Emission: {r: 0.03137255, g: 2.682353, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!1 &1096415828
 GameObject:
@@ -2551,7 +2238,7 @@ Material:
     - _ZWrite: 1
     - _ZWriteControl: 0
     m_Colors:
-    - _Emission: {r: 0, g: 0, b: 0, a: 0}
+    - _Emission: {r: 2.9056604, g: 0.4474672, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!1001 &1154429531
 PrefabInstance:
@@ -2589,7 +2276,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _material
       value: 
-      objectReference: {fileID: 154467321}
+      objectReference: {fileID: 555013856}
     - target: {fileID: 6035434334258975064, guid: 7781a45aa31f9e14da18d7ca09a9f4b8,
         type: 3}
       propertyPath: m_RootOrder
@@ -2703,7 +2390,7 @@ Material:
     - _ZWrite: 1
     - _ZWriteControl: 0
     m_Colors:
-    - _Emission: {r: 0, g: 0, b: 0, a: 0}
+    - _Emission: {r: 1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!1001 &1187257473
 PrefabInstance:
@@ -2722,6 +2409,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7000439964603476649, guid: 25a4fff595c6b6c43976a6de839cafd6,
+        type: 3}
+      propertyPath: _material
+      value: 
+      objectReference: {fileID: 377801009}
     - target: {fileID: 8331418584453427683, guid: 25a4fff595c6b6c43976a6de839cafd6,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -2784,60 +2476,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 25a4fff595c6b6c43976a6de839cafd6, type: 3}
---- !u!21 &1237166115
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Pos Ball Material (Instance)
-  m_Shader: {fileID: -6465566751694194690, guid: 1622aceee2939074bb3e05abd24585df,
-    type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 2
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2000
-  stringTagMap:
-    RenderType: Opaque
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - unity_Lightmaps:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_LightmapsInd:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_ShadowMasks:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _AlphaClip: 0
-    - _Blend: 0
-    - _CastShadows: 1
-    - _Cull: 2
-    - _DstBlend: 0
-    - _Fresnel_Power: 5
-    - _QueueControl: 0
-    - _QueueOffset: 0
-    - _ReceiveShadows: 1
-    - _SrcBlend: 1
-    - _Surface: 0
-    - _WorkflowMode: 1
-    - _ZTest: 4
-    - _ZWrite: 1
-    - _ZWriteControl: 0
-    m_Colors:
-    - _Emission: {r: 3.240411, g: 3.240411, b: 3.240411, a: 0}
-  m_BuildTextureStacks: []
 --- !u!1001 &1248617217
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2934,7 +2572,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _material
       value: 
-      objectReference: {fileID: 647511425}
+      objectReference: {fileID: 1079248840}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ffa56d222c2d5c745986ca31e0d00d95, type: 3}
 --- !u!21 &1291520686
@@ -2988,7 +2626,7 @@ Material:
     - _ZWrite: 1
     - _ZWriteControl: 0
     m_Colors:
-    - _Emission: {r: 0, g: 0, b: 0, a: 0}
+    - _Emission: {r: 0, g: 0.29803923, b: 4, a: 0}
   m_BuildTextureStacks: []
 --- !u!1 &1293054441
 GameObject:
@@ -3138,7 +2776,7 @@ Material:
     - _ZWrite: 1
     - _ZWriteControl: 0
     m_Colors:
-    - _Emission: {r: 0, g: 0, b: 0, a: 0}
+    - _Emission: {r: 0.84705883, g: 0, b: 4, a: 0}
   m_BuildTextureStacks: []
 --- !u!21 &1705823798
 Material:
@@ -3192,61 +2830,7 @@ Material:
     - _ZWrite: 1
     - _ZWriteControl: 0
     m_Colors:
-    - _Emission: {r: 3.240411, g: 3.240411, b: 3.240411, a: 0}
-  m_BuildTextureStacks: []
---- !u!21 &1733791619
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Pos Ball Material (Instance)
-  m_Shader: {fileID: -6465566751694194690, guid: 1622aceee2939074bb3e05abd24585df,
-    type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 2
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2000
-  stringTagMap:
-    RenderType: Opaque
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - unity_Lightmaps:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_LightmapsInd:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_ShadowMasks:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _AlphaClip: 0
-    - _Blend: 0
-    - _CastShadows: 1
-    - _Cull: 2
-    - _DstBlend: 0
-    - _Fresnel_Power: 5
-    - _QueueControl: 0
-    - _QueueOffset: 0
-    - _ReceiveShadows: 1
-    - _SrcBlend: 1
-    - _Surface: 0
-    - _WorkflowMode: 1
-    - _ZTest: 4
-    - _ZWrite: 1
-    - _ZWriteControl: 0
-    m_Colors:
-    - _Emission: {r: 3.240411, g: 3.240411, b: 3.240411, a: 0}
+    - _Emission: {r: 4, g: 3.2784314, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!1 &1744688386
 GameObject:
@@ -3431,7 +3015,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _material
       value: 
-      objectReference: {fileID: 1944013613}
+      objectReference: {fileID: 2100000, guid: 6276a56215f8e9440a7d694e8d3ff47d, type: 2}
     - target: {fileID: 8074423292021321422, guid: 09bb38c4a01a7d247a56b9a7627b28a6,
         type: 3}
       propertyPath: m_Name
@@ -3444,59 +3028,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09bb38c4a01a7d247a56b9a7627b28a6, type: 3}
---- !u!21 &1944013613
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Neg Ball Shader (Instance)
-  m_Shader: {fileID: -6465566751694194690, guid: d4c7972a2ed0fc340a1f8e8fa143dab3,
-    type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 2
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2000
-  stringTagMap:
-    RenderType: Opaque
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - unity_Lightmaps:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_LightmapsInd:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_ShadowMasks:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _AlphaClip: 0
-    - _Blend: 0
-    - _CastShadows: 1
-    - _Cull: 2
-    - _DstBlend: 0
-    - _QueueControl: 0
-    - _QueueOffset: 0
-    - _ReceiveShadows: 1
-    - _SrcBlend: 1
-    - _Surface: 0
-    - _WorkflowMode: 1
-    - _ZTest: 4
-    - _ZWrite: 1
-    - _ZWriteControl: 0
-    m_Colors:
-    - _Emission: {r: 2, g: 0, b: 1.4091225, a: 0}
-  m_BuildTextureStacks: []
 --- !u!1001 &2039093704
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3572,6 +3103,11 @@ PrefabInstance:
     - target: {fileID: 5746765607420765723, guid: 57d393c984ddf114b9912e4f6709f53f,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 1123647118}
+    - target: {fileID: 6735475045045599569, guid: 57d393c984ddf114b9912e4f6709f53f,
+        type: 3}
+      propertyPath: _material
       value: 
       objectReference: {fileID: 1123647118}
     m_RemovedComponents: []
