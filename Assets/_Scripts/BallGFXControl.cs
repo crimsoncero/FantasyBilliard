@@ -14,7 +14,7 @@ public class BallGFXControl : MonoBehaviour
 
     private void OnValidate()
     {
-        _material = this.GetComponent<MeshRenderer>().material;
+        _material = this.GetComponent<MeshRenderer>().sharedMaterial;
     }
 
 }
