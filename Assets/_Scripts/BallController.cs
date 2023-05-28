@@ -83,6 +83,7 @@ public class BallController : MonoBehaviour
         if(_shootTrigger)
         {
             Shoot();
+            _shootTrigger = false;
         }
     }
 
