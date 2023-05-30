@@ -1,0 +1,12 @@
+This pack contains 50 materials with 126 seamless textures that are ready to be used in your project.
+
+This pack is suitable for any outdoor or indoor scenes in your project.
+
+Features:
+Texture Sizes: 2048x2048px
+PBR
+Seamless Textures
+Perfect Tiling
+.PNG Format
+
+Supported Target Build Platforms: PC, MAC, PS4, Xbox One, Android and others.
