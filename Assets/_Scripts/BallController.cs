@@ -14,9 +14,6 @@ public class BallController : MonoBehaviour
     [SerializeField] private Camera _camera;
 
 
-   
-
-
     [Header("Force Mapping")]
     [SerializeField] private float _forceMultiplier = 1.5f;
     [SerializeField] private float minForceInput;
@@ -60,7 +57,6 @@ public class BallController : MonoBehaviour
                 if (Input.touchCount > 1)
                 {
                     _isAiming = false;
-
                 }
                 // First Touch Moved:
                 if (Input.GetTouch(0).phase == TouchPhase.Moved)
@@ -117,6 +113,6 @@ public class BallController : MonoBehaviour
     {
         Vector3 hitVector = _currentDirVector * (_currentForce * _forceMultiplier);
         Debug.Log("Hit Vector: " + hitVector);
-        _rb.AddForce(hitVector * _forceMultiplier, ForceMode.Impulse);
+        _rb.AddForce(hitVector, ForceMode.Impulse);
     }
 }
