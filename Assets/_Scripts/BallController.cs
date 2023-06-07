@@ -1,18 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using Unity.Mathematics;
 using Unity.VisualScripting;
-using UnityEditor.Build.Content;
 using UnityEngine;
-
 
 public class BallController : MonoBehaviour
 {
-    public bool canShoot;
-    
+    //public bool canShoot;
+    [SerializeField] private GameObject _gameManager;
     [SerializeField] private Rigidbody _rb;
     [SerializeField] private Camera _camera;
-
 
     [Header("Force Mapping")]
     [SerializeField] private float _forceMultiplier = 1.5f;
@@ -22,24 +17,27 @@ public class BallController : MonoBehaviour
     [SerializeField] private float maxForceOutput;
 
 
-
+    
     private Vector3 _currentDirVector = Vector3.zero;
     private float _currentForce = 0;
     private bool _isAiming = false;
     private bool _shootTrigger = false;
+    private VariableDeclarations _sceneScope;
 
-
-
-    // Start is called before the first frame update
-    void Start()
+    private bool _canShoot
     {
-        canShoot = true;
+        get
+        {
+            return (bool)Variables.Object(_gameManager).Get("canShoot");
+        }
     }
+
+   
 
     private void Update()
     {
         // Touch checks if can shoot
-        if(canShoot && Input.touchCount > 0)
+        if (_canShoot && Input.touchCount > 0)
         {
             
 
