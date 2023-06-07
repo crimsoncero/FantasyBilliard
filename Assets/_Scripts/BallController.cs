@@ -2,11 +2,12 @@ using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class BallController : MonoBehaviour
+public class BallController : BallHandler
 {
+
+  
+
     //public bool canShoot;
-    [SerializeField] private GameObject _gameManager;
-    [SerializeField] private Rigidbody _rb;
     [SerializeField] private Camera _camera;
 
     [Header("Force Mapping")]
@@ -24,18 +25,17 @@ public class BallController : MonoBehaviour
     private bool _shootTrigger = false;
     private VariableDeclarations _sceneScope;
 
+
     private bool _canShoot
     {
-        get
-        {
-            return (bool)Variables.Object(_gameManager).Get("canShoot");
-        }
+        get { return GameManager.Instance.CanShoot; }
+        set { GameManager.Instance.CanShoot = value; }
     }
 
-   
 
-    private void Update()
+    protected override void Update()
     {
+        base.Update();
         // Touch checks if can shoot
         if (_canShoot && Input.touchCount > 0)
         {
@@ -72,9 +72,11 @@ public class BallController : MonoBehaviour
         }   
     }
 
-    private void FixedUpdate()
+    protected override void FixedUpdate()
     {
-        if(_shootTrigger)
+        base.FixedUpdate();
+
+        if (_shootTrigger)
         {
             Shoot();
             _shootTrigger = false;
@@ -112,5 +114,6 @@ public class BallController : MonoBehaviour
         Vector3 hitVector = _currentDirVector * (_currentForce * _forceMultiplier);
         Debug.Log("Hit Vector: " + hitVector);
         _rb.AddForce(hitVector, ForceMode.Impulse);
+        //_canShoot = false;
     }
 }

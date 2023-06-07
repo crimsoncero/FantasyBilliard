@@ -87,11 +87,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00d4db26de8299641b190575e8426636, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  canShoot: 0
-  _rb: {fileID: 0}
+  _rb: {fileID: 5729313047869369752}
   _camera: {fileID: 0}
-  _forceMultiplier: 1.5
-  minForceInput: 0
-  maxForceInput: 0
-  minForceOutput: 0
-  maxForceOutput: 0
+  _forceMultiplier: 1
+  minForceInput: 5
+  maxForceInput: 150
+  minForceOutput: 0.2
+  maxForceOutput: 30
+--- !u!54 &5729313047869369752 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 7133099232874699388, guid: 88e6b91887c774a49a8dff52d5e86288,
+    type: 3}
+  m_PrefabInstance: {fileID: 3278409598626183140}
+  m_PrefabAsset: {fileID: 0}
