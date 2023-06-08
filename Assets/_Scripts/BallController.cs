@@ -1,5 +1,4 @@
 using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class BallController : BallHandler
@@ -23,7 +22,6 @@ public class BallController : BallHandler
     private float _currentForce = 0;
     private bool _isAiming = false;
     private bool _shootTrigger = false;
-    private VariableDeclarations _sceneScope;
 
 
     private bool _canShoot

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 public class BallHandler : MonoBehaviour
 {
@@ -6,10 +7,9 @@ public class BallHandler : MonoBehaviour
     public bool IsMoving { get; private set; }
 
     [SerializeField] protected BallData _ballData;
-    [SerializeField] protected BallController _ballController;
     [SerializeField] protected Rigidbody _rb;
     
-
+    protected Material _material;
 
     private void Awake()
     {
@@ -18,7 +18,6 @@ public class BallHandler : MonoBehaviour
 
     protected virtual void Update()
     {
-        Debug.Log("is moving is : " + IsMoving);
     }
 
     protected virtual void FixedUpdate()
@@ -33,5 +32,12 @@ public class BallHandler : MonoBehaviour
         {
             IsMoving = true;
         }
+    }
+
+    private void OnValidate()
+    {
+        _material = new Material(_ballData.Material);
+        _rb.GetComponent<MeshRenderer>().material = _material;
+        _material.SetColor("_Emission", _ballData.Color);
     }
 }
