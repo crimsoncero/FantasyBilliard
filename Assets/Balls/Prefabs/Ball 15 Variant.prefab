@@ -10,8 +10,19 @@ PrefabInstance:
     - target: {fileID: 3053582840737370987, guid: 88e6b91887c774a49a8dff52d5e86288,
         type: 3}
       propertyPath: m_Name
-      value: Ball 15
+      value: Ball 15 Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 4559183446608726973, guid: 88e6b91887c774a49a8dff52d5e86288,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7555582817043200738, guid: 88e6b91887c774a49a8dff52d5e86288,
+        type: 3}
+      propertyPath: _ballData
+      value: 
+      objectReference: {fileID: 11400000, guid: dd2a739e07de217469ad914b3a4ea471,
+        type: 2}
     - target: {fileID: 8784384085094395350, guid: 88e6b91887c774a49a8dff52d5e86288,
         type: 3}
       propertyPath: m_RootOrder

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BallType: 0
   BallColor: 0
-  Color: {r: 1, g: 0.86307746, b: 0, a: 0}
+  Color: {r: 4, g: 4, b: 4, a: 0}
   Material: {fileID: 2100000, guid: 576ddbc86662e9440a74059b776a4c3d, type: 2}
