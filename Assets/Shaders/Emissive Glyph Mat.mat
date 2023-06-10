@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Emissive Glyph Mat
-  m_Shader: {fileID: -6465566751694194690, guid: e34c5d82f645ba6499b9ab5b685891ab,
+  m_Shader: {fileID: -6465566751694194690, guid: 18874b08fed58ed47add3cdaa6d47725,
     type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
@@ -22,7 +22,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _MainTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: c1a89c3530f51ed4b8129078d8de26fd, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _NormalMap:
