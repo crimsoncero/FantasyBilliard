@@ -5,23 +5,13 @@ using UnityEngine.AddressableAssets;
 
 public enum BallType
 {
-    None,
-    Positive,
-    Negetive,
+    Cue,
+    Solid,
+    Striped,
+    Black,
 }
 
-public enum BallColor
-{
-    White,
-    Black,
-    Cyan,
-    Yellow,
-    Magenta,
-    Red,
-    Violet,
-    Green,
-    Orange,
-}
+
 
 
 
@@ -30,7 +20,6 @@ public enum BallColor
 public class BallData : ScriptableObject
 {
     public BallType BallType;
-    public BallColor BallColor;
-    [ColorUsageAttribute(true, true)] public Color Color;
+    public Texture2D Texture;
     public Material Material;
 }

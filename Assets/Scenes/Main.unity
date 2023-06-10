@@ -199,7 +199,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 563471884}
+      objectReference: {fileID: 1115475540}
     - target: {fileID: 8513407055792629161, guid: 4d18135e159260342bc993bae4f0ebb2,
         type: 3}
       propertyPath: m_Name
@@ -322,48 +322,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 25813828}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &62692426
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Positive Ball Material
-  m_Shader: {fileID: -6465566751694194690, guid: aedc832d198c08b4faba91cb00d00dff,
-    type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 2
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - unity_Lightmaps:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_LightmapsInd:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_ShadowMasks:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _Fill: 0.1
-    - _Fresenl_Power: 2
-    - _QueueControl: 0
-    - _QueueOffset: 0
-    m_Colors:
-    - _Emission: {r: 4, g: 0, b: 0.03137255, a: 0}
-  m_BuildTextureStacks: []
 --- !u!1 &92499011
 GameObject:
   m_ObjectHideFlags: 0
@@ -496,7 +454,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 1250075665}
+      objectReference: {fileID: 1607817628}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa4e56aa4df30ae41b728c5d45d227bc, type: 3}
 --- !u!1001 &183835636
@@ -600,17 +558,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 62692426}
+      objectReference: {fileID: 1210857909}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a7c11fab0423f7a43bc6cf284efcb5b0, type: 3}
---- !u!21 &196968739
+--- !u!21 &424670924
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Positive Ball Material
+  m_Name: Ball Material
   m_Shader: {fileID: -6465566751694194690, guid: aedc832d198c08b4faba91cb00d00dff,
     type: 3}
   m_ValidKeywords: []
@@ -624,6 +582,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: d46c8064a37f65544b19b4701fde000d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -638,264 +600,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Dissolve: 0
     - _Fill: 0.1
     - _Fresenl_Power: 2
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _Emission: {r: 4, g: 3.4509804, b: 0, a: 0}
-  m_BuildTextureStacks: []
---- !u!21 &207177912
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Positive Ball Material
-  m_Shader: {fileID: -6465566751694194690, guid: aedc832d198c08b4faba91cb00d00dff,
-    type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 2
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - unity_Lightmaps:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_LightmapsInd:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_ShadowMasks:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _Fill: 0.1
-    - _Fresenl_Power: 2
-    - _QueueControl: 0
-    - _QueueOffset: 0
-    m_Colors:
-    - _Emission: {r: 4, g: 0, b: 1.4117647, a: 0}
-  m_BuildTextureStacks: []
---- !u!21 &330318126
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Positive Ball Material
-  m_Shader: {fileID: -6465566751694194690, guid: aedc832d198c08b4faba91cb00d00dff,
-    type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 2
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - unity_Lightmaps:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_LightmapsInd:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_ShadowMasks:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _Fill: 0.1
-    - _Fresenl_Power: 2
-    - _QueueControl: 0
-    - _QueueOffset: 0
-    m_Colors:
+    - _Dissolve_Emission: {r: 0, g: 1.800518, b: 4, a: 0}
     - _Emission: {r: 0, g: 0, b: 0, a: 0}
-  m_BuildTextureStacks: []
---- !u!21 &488333522
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Positive Ball Material
-  m_Shader: {fileID: -6465566751694194690, guid: aedc832d198c08b4faba91cb00d00dff,
-    type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 2
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - unity_Lightmaps:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_LightmapsInd:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_ShadowMasks:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _Fill: 0.1
-    - _Fresenl_Power: 2
-    - _QueueControl: 0
-    - _QueueOffset: 0
-    m_Colors:
-    - _Emission: {r: 0, g: 4, b: 0.28684616, a: 0}
-  m_BuildTextureStacks: []
---- !u!21 &489727150
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Positive Ball Material
-  m_Shader: {fileID: -6465566751694194690, guid: aedc832d198c08b4faba91cb00d00dff,
-    type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 2
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - unity_Lightmaps:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_LightmapsInd:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_ShadowMasks:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _Fill: 0.1
-    - _Fresenl_Power: 2
-    - _QueueControl: 0
-    - _QueueOffset: 0
-    m_Colors:
-    - _Emission: {r: 4, g: 0.37845004, b: 0, a: 0}
-  m_BuildTextureStacks: []
---- !u!21 &493998857
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Positive Ball Material
-  m_Shader: {fileID: -6465566751694194690, guid: aedc832d198c08b4faba91cb00d00dff,
-    type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 2
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - unity_Lightmaps:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_LightmapsInd:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_ShadowMasks:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _Fill: 0.1
-    - _Fresenl_Power: 2
-    - _QueueControl: 0
-    - _QueueOffset: 0
-    m_Colors:
-    - _Emission: {r: 4, g: 0, b: 0.03137255, a: 0}
-  m_BuildTextureStacks: []
---- !u!21 &563471884
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Positive Ball Material
-  m_Shader: {fileID: -6465566751694194690, guid: aedc832d198c08b4faba91cb00d00dff,
-    type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 2
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - unity_Lightmaps:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_LightmapsInd:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_ShadowMasks:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _Fill: 0.1
-    - _Fresenl_Power: 2
-    - _QueueControl: 0
-    - _QueueOffset: 0
-    m_Colors:
-    - _Emission: {r: 4, g: 0.37845004, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!1 &571986338
 GameObject:
@@ -1018,7 +730,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 1029958929}
+      objectReference: {fileID: 959872395}
     - target: {fileID: 7000439964603476649, guid: 25a4fff595c6b6c43976a6de839cafd6,
         type: 3}
       propertyPath: _material
@@ -1117,48 +829,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &658659839
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Positive Ball Material
-  m_Shader: {fileID: -6465566751694194690, guid: aedc832d198c08b4faba91cb00d00dff,
-    type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 2
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - unity_Lightmaps:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_LightmapsInd:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_ShadowMasks:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _Fill: 0.1
-    - _Fresenl_Power: 2
-    - _QueueControl: 0
-    - _QueueOffset: 0
-    m_Colors:
-    - _Emission: {r: 0, g: 4, b: 3.7803922, a: 0}
-  m_BuildTextureStacks: []
 --- !u!1 &680175479
 GameObject:
   m_ObjectHideFlags: 0
@@ -1190,6 +860,54 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!21 &685568771
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Ball Material
+  m_Shader: {fileID: -6465566751694194690, guid: aedc832d198c08b4faba91cb00d00dff,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 2
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 5d40329264ad9fb45add2cff49aa702e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Dissolve: 0
+    - _Fill: 0.1
+    - _Fresenl_Power: 2
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    m_Colors:
+    - _Dissolve_Emission: {r: 0, g: 1.800518, b: 4, a: 0}
+    - _Emission: {r: 0, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
 --- !u!1001 &689077321
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1281,7 +999,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 1105176780}
+      objectReference: {fileID: 1567172487}
     - target: {fileID: 8074423292021321422, guid: 09bb38c4a01a7d247a56b9a7627b28a6,
         type: 3}
       propertyPath: m_Name
@@ -1556,17 +1274,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 196968739}
+      objectReference: {fileID: 1871968058}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f3a92ed3aadc58b43b6ffdd805290d18, type: 3}
---- !u!21 &884490117
+--- !u!21 &806680957
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Positive Ball Material
+  m_Name: Ball Material
   m_Shader: {fileID: -6465566751694194690, guid: aedc832d198c08b4faba91cb00d00dff,
     type: 3}
   m_ValidKeywords: []
@@ -1580,6 +1298,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 39c97dd291f1ac840aee7caf54384ecf, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -1594,12 +1316,110 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Dissolve: 0
     - _Fill: 0.1
     - _Fresenl_Power: 2
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _Emission: {r: 4, g: 4, b: 4, a: 0}
+    - _Dissolve_Emission: {r: 0, g: 1.800518, b: 4, a: 0}
+    - _Emission: {r: 0, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+--- !u!21 &807593797
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Ball Material
+  m_Shader: {fileID: -6465566751694194690, guid: aedc832d198c08b4faba91cb00d00dff,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 2
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: b2cd19e1961baf045b0484472aef60b5, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Dissolve: 0
+    - _Fill: 0.1
+    - _Fresenl_Power: 2
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    m_Colors:
+    - _Dissolve_Emission: {r: 0, g: 1.800518, b: 4, a: 0}
+    - _Emission: {r: 0, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+--- !u!21 &959872395
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Ball Material
+  m_Shader: {fileID: -6465566751694194690, guid: aedc832d198c08b4faba91cb00d00dff,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 2
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 3f4e750012c970e49812db94ecdb1ef9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Dissolve: 0
+    - _Fill: 0.1
+    - _Fresenl_Power: 2
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    m_Colors:
+    - _Dissolve_Emission: {r: 0, g: 1.800518, b: 4, a: 0}
+    - _Emission: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!1 &963194225
 GameObject:
@@ -1750,48 +1570,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &1029958929
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Positive Ball Material
-  m_Shader: {fileID: -6465566751694194690, guid: aedc832d198c08b4faba91cb00d00dff,
-    type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 2
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - unity_Lightmaps:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_LightmapsInd:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_ShadowMasks:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _Fill: 0.1
-    - _Fresenl_Power: 2
-    - _QueueControl: 0
-    - _QueueOffset: 0
-    m_Colors:
-    - _Emission: {r: 0.74609756, g: 0, b: 4, a: 0}
-  m_BuildTextureStacks: []
 --- !u!1001 &1049585840
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1803,7 +1581,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 1423275775}
+      objectReference: {fileID: 424670924}
     - target: {fileID: 1843271960443268956, guid: 57d393c984ddf114b9912e4f6709f53f,
         type: 3}
       propertyPath: m_Name
@@ -1902,7 +1680,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 489727150}
+      objectReference: {fileID: 1455267355}
     - target: {fileID: 4681709683365309361, guid: 17d62aa258d3e484293eb3304008afcd,
         type: 3}
       propertyPath: _color.b
@@ -1985,14 +1763,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17d62aa258d3e484293eb3304008afcd, type: 3}
---- !u!21 &1105176780
+--- !u!21 &1115475540
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Positive Ball Material
+  m_Name: Ball Material
   m_Shader: {fileID: -6465566751694194690, guid: aedc832d198c08b4faba91cb00d00dff,
     type: 3}
   m_ValidKeywords: []
@@ -2006,6 +1784,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: c7e56b07c5cc168428939466e33fa9a4, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -2020,12 +1802,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Dissolve: 0
     - _Fill: 0.1
     - _Fresenl_Power: 2
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _Emission: {r: 0, g: 4, b: 3.7803922, a: 0}
+    - _Dissolve_Emission: {r: 0, g: 1.800518, b: 4, a: 0}
+    - _Emission: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!1 &1148001898
 GameObject:
@@ -2162,14 +1946,14 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &1250075665
+--- !u!21 &1210857909
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Positive Ball Material
+  m_Name: Ball Material
   m_Shader: {fileID: -6465566751694194690, guid: aedc832d198c08b4faba91cb00d00dff,
     type: 3}
   m_ValidKeywords: []
@@ -2183,6 +1967,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 6743f49f27bb75644a890c5e74390e81, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -2197,21 +1985,23 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Dissolve: 0
     - _Fill: 0.1
     - _Fresenl_Power: 2
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _Emission: {r: 4, g: 3.4509804, b: 0, a: 0}
+    - _Dissolve_Emission: {r: 0, g: 1.800518, b: 4, a: 0}
+    - _Emission: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
---- !u!21 &1423275775
+--- !u!21 &1441067413
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Positive Ball Material
+  m_Name: Ball Material
   m_Shader: {fileID: -6465566751694194690, guid: aedc832d198c08b4faba91cb00d00dff,
     type: 3}
   m_ValidKeywords: []
@@ -2225,6 +2015,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: a5eb7baa0866efa4d8cf1ba70b6d3932, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -2239,12 +2033,206 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Dissolve: 0
     - _Fill: 0.1
     - _Fresenl_Power: 2
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _Emission: {r: 0, g: 4, b: 0.28684616, a: 0}
+    - _Dissolve_Emission: {r: 0, g: 1.800518, b: 4, a: 0}
+    - _Emission: {r: 0, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+--- !u!21 &1455267355
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Ball Material
+  m_Shader: {fileID: -6465566751694194690, guid: aedc832d198c08b4faba91cb00d00dff,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 2
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 1defc742f4770024b863a2fa3cccec6d, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Dissolve: 0
+    - _Fill: 0.1
+    - _Fresenl_Power: 2
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    m_Colors:
+    - _Dissolve_Emission: {r: 0, g: 1.800518, b: 4, a: 0}
+    - _Emission: {r: 0, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+--- !u!21 &1476850974
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Ball Material
+  m_Shader: {fileID: -6465566751694194690, guid: aedc832d198c08b4faba91cb00d00dff,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 2
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: b93f86fbd1de8804a8a5e665e6537d7b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Dissolve: 0
+    - _Fill: 0.1
+    - _Fresenl_Power: 2
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    m_Colors:
+    - _Dissolve_Emission: {r: 0, g: 1.800518, b: 4, a: 0}
+    - _Emission: {r: 0, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+--- !u!21 &1522980820
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Ball Material
+  m_Shader: {fileID: -6465566751694194690, guid: aedc832d198c08b4faba91cb00d00dff,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 2
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 1d429a55f68a550429a0f04937ce4de0, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Dissolve: 0
+    - _Fill: 0.1
+    - _Fresenl_Power: 2
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    m_Colors:
+    - _Dissolve_Emission: {r: 0, g: 1.800518, b: 4, a: 0}
+    - _Emission: {r: 0, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+--- !u!21 &1567172487
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Ball Material
+  m_Shader: {fileID: -6465566751694194690, guid: aedc832d198c08b4faba91cb00d00dff,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 2
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 3fa724a9fc268c24a90ce624e23b9a74, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Dissolve: 0
+    - _Fill: 0.1
+    - _Fresenl_Power: 2
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    m_Colors:
+    - _Dissolve_Emission: {r: 0, g: 1.800518, b: 4, a: 0}
+    - _Emission: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!1001 &1571006985
 PrefabInstance:
@@ -2308,6 +2296,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3616626063496017949, guid: 49651373f7d75774fbdea2171776da3e,
+        type: 3}
+      propertyPath: _dissolve
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4041944664677636227, guid: 49651373f7d75774fbdea2171776da3e,
         type: 3}
       propertyPath: m_AngularDrag
@@ -2317,7 +2310,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 658659839}
+      objectReference: {fileID: 806680957}
     - target: {fileID: 8109441267607261588, guid: 49651373f7d75774fbdea2171776da3e,
         type: 3}
       propertyPath: m_Name
@@ -2336,7 +2329,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 493998857}
+      objectReference: {fileID: 685568771}
     - target: {fileID: 2077421603082745259, guid: ec3c92d0c9c04ac44a000509531a0ced,
         type: 3}
       propertyPath: m_Name
@@ -2429,6 +2422,54 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec3c92d0c9c04ac44a000509531a0ced, type: 3}
+--- !u!21 &1607817628
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Ball Material
+  m_Shader: {fileID: -6465566751694194690, guid: aedc832d198c08b4faba91cb00d00dff,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 2
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 5ebe6313cdb84f24aa189816b8886cb6, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Dissolve: 0
+    - _Fill: 0.1
+    - _Fresenl_Power: 2
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    m_Colors:
+    - _Dissolve_Emission: {r: 0, g: 1.800518, b: 4, a: 0}
+    - _Emission: {r: 0, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
 --- !u!21 &1610035788
 Material:
   serializedVersion: 8
@@ -2469,48 +2510,6 @@ Material:
     m_Colors:
     - _Emission: {r: 4, g: 4, b: 4, a: 0}
   m_BuildTextureStacks: []
---- !u!21 &1647137946
-Material:
-  serializedVersion: 8
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: Positive Ball Material
-  m_Shader: {fileID: -6465566751694194690, guid: aedc832d198c08b4faba91cb00d00dff,
-    type: 3}
-  m_ValidKeywords: []
-  m_InvalidKeywords: []
-  m_LightmapFlags: 2
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - unity_Lightmaps:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_LightmapsInd:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - unity_ShadowMasks:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Ints: []
-    m_Floats:
-    - _Fill: 0.1
-    - _Fresenl_Power: 2
-    - _QueueControl: 0
-    - _QueueOffset: 0
-    m_Colors:
-    - _Emission: {r: 4, g: 0, b: 1.4117647, a: 0}
-  m_BuildTextureStacks: []
 --- !u!1001 &1669874832
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2522,7 +2521,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2049110519}
+      objectReference: {fileID: 1476850974}
     - target: {fileID: 4239946665736763788, guid: ffa56d222c2d5c745986ca31e0d00d95,
         type: 3}
       propertyPath: m_Name
@@ -2718,7 +2717,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 488333522}
+      objectReference: {fileID: 1900976915}
     - target: {fileID: 4947033649622842856, guid: 7781a45aa31f9e14da18d7ca09a9f4b8,
         type: 3}
       propertyPath: _color.b
@@ -2933,7 +2932,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 1647137946}
+      objectReference: {fileID: 807593797}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e71571f15657b34c822cc64c3a833f6, type: 3}
 --- !u!1001 &1840900787
@@ -2998,7 +2997,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 884490117}
+      objectReference: {fileID: 2132758679}
     - target: {fileID: 5857990733355462088, guid: 29a32528fdad8ce4fabfa45cb4e64c8a,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -3067,14 +3066,14 @@ Rigidbody:
     type: 3}
   m_PrefabInstance: {fileID: 1840900787}
   m_PrefabAsset: {fileID: 0}
---- !u!21 &2049110519
+--- !u!21 &1871968058
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Positive Ball Material
+  m_Name: Ball Material
   m_Shader: {fileID: -6465566751694194690, guid: aedc832d198c08b4faba91cb00d00dff,
     type: 3}
   m_ValidKeywords: []
@@ -3088,6 +3087,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 0b27f768c2f03254d8bd39b79005c70a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -3102,12 +3105,62 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Dissolve: 0
     - _Fill: 0.1
     - _Fresenl_Power: 2
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _Emission: {r: 0.74609756, g: 0, b: 4, a: 0}
+    - _Dissolve_Emission: {r: 0, g: 1.800518, b: 4, a: 0}
+    - _Emission: {r: 0, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
+--- !u!21 &1900976915
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Ball Material
+  m_Shader: {fileID: -6465566751694194690, guid: aedc832d198c08b4faba91cb00d00dff,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 2
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 45b868014d1019c4d91143a214d559a2, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Dissolve: 0
+    - _Fill: 0.1
+    - _Fresenl_Power: 2
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    m_Colors:
+    - _Dissolve_Emission: {r: 0, g: 1.800518, b: 4, a: 0}
+    - _Emission: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!1 &2080685436
 GameObject:
@@ -3242,7 +3295,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 207177912}
+      objectReference: {fileID: 1522980820}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d57375d228885a40a83fb951c407270, type: 3}
 --- !u!4 &2111505526 stripped
@@ -3337,9 +3390,57 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 330318126}
+      objectReference: {fileID: 1441067413}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60c64f3ac4ba1704587f260d8b773c26, type: 3}
+--- !u!21 &2132758679
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Ball Material
+  m_Shader: {fileID: -6465566751694194690, guid: aedc832d198c08b4faba91cb00d00dff,
+    type: 3}
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 2
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: b281b91a70a624a0da1c43adc1c30c7b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Dissolve: 0
+    - _Fill: 0.1
+    - _Fresenl_Power: 2
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    m_Colors:
+    - _Dissolve_Emission: {r: 0, g: 1.800518, b: 4, a: 0}
+    - _Emission: {r: 0, g: 0, b: 0, a: 0}
+  m_BuildTextureStacks: []
 --- !u!1001 &1163341469288570650
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3420,6 +3521,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1843904938952105685, guid: 6cd06641b19a72d40ae19678b46433dc,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1843904938952105685, guid: 6cd06641b19a72d40ae19678b46433dc,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1843904938952105685, guid: 6cd06641b19a72d40ae19678b46433dc,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1843904938952105685, guid: 6cd06641b19a72d40ae19678b46433dc,
         type: 3}

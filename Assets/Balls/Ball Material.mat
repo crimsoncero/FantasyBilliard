@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Positive Ball Material
+  m_Name: Ball Material
   m_Shader: {fileID: -6465566751694194690, guid: aedc832d198c08b4faba91cb00d00dff,
     type: 3}
   m_ValidKeywords: []

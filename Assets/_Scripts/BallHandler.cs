@@ -8,7 +8,8 @@ public class BallHandler : MonoBehaviour
 
     [SerializeField] protected BallData _ballData;
     [SerializeField] protected Rigidbody _rb;
-    
+    [SerializeField]
+    [Range(0f, 1f)] protected float _dissolve = 0;
     protected Material _material;
 
     private void Awake()
@@ -38,6 +39,6 @@ public class BallHandler : MonoBehaviour
     {
         _material = new Material(_ballData.Material);
         _rb.GetComponent<MeshRenderer>().material = _material;
-        _material.SetColor("_Emission", _ballData.Color);
+        _material.SetTexture("_MainTex", _ballData.Texture);
     }
 }

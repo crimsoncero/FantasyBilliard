@@ -137,6 +137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ballData: {fileID: 11400000, guid: 376b9166e29871a42a81f446e5c84a36, type: 2}
   _rb: {fileID: 5729313047869369752}
+  _dissolve: 0
   _camera: {fileID: 0}
   _forceMultiplier: 1
   minForceInput: 5

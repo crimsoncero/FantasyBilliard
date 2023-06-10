@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: Cue Ball
   m_EditorClassIdentifier: 
   BallType: 0
-  BallColor: 0
-  Color: {r: 4, g: 4, b: 4, a: 0}
+  Texture: {fileID: 2800000, guid: b281b91a70a624a0da1c43adc1c30c7b, type: 3}
   Material: {fileID: 2100000, guid: 576ddbc86662e9440a74059b776a4c3d, type: 2}
