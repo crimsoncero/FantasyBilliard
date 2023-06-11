@@ -21,14 +21,13 @@ public class GameManager : StaticInstance<GameManager>
     public BallType P2BallType { get; private set; }
 
     // Turn Data
-    public BallData FirstContact { get; private set; }
+    public BallData FirstContact { get; set; }
     public List<BallData> BallsInThisTurn { get; private set; }
 
     
 
     private void Start()
     {
-        CanShoot = true;
         CurrentState = GameState.Starting;
         OnStartingEnter();
     }
@@ -43,14 +42,37 @@ public class GameManager : StaticInstance<GameManager>
         }
     }
 
+
+    public void EnteredHole(BallData ballData)
+    {
+
+        BallsInThisTurn.Add(ballData);
+        BallsInThisGame.Add(ballData);
+    }
+
+
     void OnStartingEnter()
     {
+        // Data Init:
+        BallsInThisGame = new List<BallData>();
+
+
+
         // Choose First Player to play.
         CurrentPlayer = Random.Range(0,1) == 0 ? Player.P1 : Player.P2;
+        
+        
+        
+        
+        
         foreach(var b in Balls)
         {
             b.Appear();
         }
+        CueBall.Appear();
+
+
+
 
         OnPlayerEnter();
     }
@@ -58,12 +80,17 @@ public class GameManager : StaticInstance<GameManager>
 
     void OnPlayerEnter()
     {
+        // Data Init:
+        BallsInThisTurn = new List<BallData>();
+        FirstContact = null;
+
+
         CurrentState = GameState.Player;
     }
 
     void OnPlayerUpdate()
     {
-
+        CanShoot = true;
     }
 
     void OnPlayerExit()
@@ -102,6 +129,8 @@ public class GameManager : StaticInstance<GameManager>
 
     }
 
+
+   
 
 }
 

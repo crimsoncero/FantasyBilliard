@@ -45,10 +45,24 @@ public class BallHandler : MonoBehaviour
     {
         if (other.CompareTag("Hole"))
         {
-            Debug.Log("Vaniuh");
+            GameManager.Instance.EnteredHole(_ballData);
             Vanish();
         }
     }
+
+    protected void OnCollisionEnter(Collision collision)
+    {
+        if(collision.collider.tag == "Cue Ball")
+        {
+            if(GameManager.Instance.FirstContact == null)
+            {
+                GameManager.Instance.FirstContact = _ballData;
+            }
+        }
+    }
+
+
+
 
 
     protected void Vanish()
@@ -88,7 +102,7 @@ public class BallHandler : MonoBehaviour
         _transform.position = new Vector3(transform.position.x, 0, transform.position.z);
     }
 
-private void OnValidate()
+    private void OnValidate()
     {
         _material = new Material(_ballData.Material);
         _rb.GetComponent<MeshRenderer>().material = _material;
