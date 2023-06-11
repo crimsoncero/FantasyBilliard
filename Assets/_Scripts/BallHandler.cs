@@ -64,7 +64,6 @@ public class BallHandler : MonoBehaviour
 
 
 
-
     protected void Vanish()
     {
         float vanishTime = 2f;

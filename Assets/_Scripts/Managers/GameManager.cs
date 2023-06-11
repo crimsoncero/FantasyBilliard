@@ -1,4 +1,6 @@
+using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class GameManager : StaticInstance<GameManager>
@@ -11,6 +13,7 @@ public class GameManager : StaticInstance<GameManager>
 
     // Enablers
     public bool CanShoot { get; set; }
+    public bool CanAbility { get; set; }
 
     // Game Data
     public List<BallData> BallsInThisGame { get; private set; }
@@ -19,15 +22,17 @@ public class GameManager : StaticInstance<GameManager>
     public TurnType CurrentTurnType { get; private set; }
     public BallType P1BallType { get; private set; }
     public BallType P2BallType { get; private set; }
+    public bool IsPausing { get; private set; }
 
     // Turn Data
     public BallData FirstContact { get; set; }
     public List<BallData> BallsInThisTurn { get; private set; }
 
-    
+    private bool _ballsMoving = false;
 
     private void Start()
     {
+        IsPausing = false;
         CurrentState = GameState.Starting;
         OnStartingEnter();
     }
@@ -36,7 +41,9 @@ public class GameManager : StaticInstance<GameManager>
     // Update is called once per frame
     void Update()
     {
-        if(CurrentState == GameState.Player) 
+        _ballsMoving = AreBallsMoving();
+
+        if(CurrentState == GameState.Player && !IsPausing) 
         {
             OnPlayerUpdate();
         }
@@ -50,12 +57,23 @@ public class GameManager : StaticInstance<GameManager>
         BallsInThisGame.Add(ballData);
     }
 
+    public void PauseToggle()
+    {
+        IsPausing = !IsPausing;
+        if (IsPausing)
+        {
 
+        }   
+    }
+
+
+    #region State Machine
     void OnStartingEnter()
     {
         // Data Init:
         BallsInThisGame = new List<BallData>();
-
+        CanShoot = false;
+        CanAbility = false;
 
 
         // Choose First Player to play.
@@ -86,15 +104,24 @@ public class GameManager : StaticInstance<GameManager>
 
 
         CurrentState = GameState.Player;
+        CanShoot = true;
     }
 
     void OnPlayerUpdate()
     {
-        CanShoot = true;
     }
 
-    void OnPlayerExit()
+    public void OnPlayerExit()
     {
+        StartCoroutine(OnPlayerExitCoroutine());
+    }
+
+    private IEnumerator OnPlayerExitCoroutine()
+    {
+        CanShoot = false;
+        yield return new WaitForSeconds(1f);
+        yield return new WaitUntil(() => _ballsMoving == false);
+        CanShoot = true;
 
         if (false) // 8 Ball in, game ends
         {
@@ -121,17 +148,31 @@ public class GameManager : StaticInstance<GameManager>
             CurrentTurnType = TurnType.Normal;
         }
 
-        OnPlayerEnter();
+        //OnPlayerEnter();
     }
 
     void OnEndingEnter(bool isWinner)
     {
 
     }
+    #endregion
+    private bool AreBallsMoving()
+    {
+            if (CueBall.IsMoving)
+            {
+                return true;
+            }
+            else foreach (var b in Balls)
+                {
+                    if (b.IsMoving)
+                    {
+                        return true;
+                    }
+                }
 
+        return false;
 
-   
-
+    }
 }
 
 

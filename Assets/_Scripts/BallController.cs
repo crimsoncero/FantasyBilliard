@@ -112,6 +112,9 @@ public class BallController : BallHandler
         Vector3 hitVector = _currentDirVector * (_currentForce * _forceMultiplier);
         Debug.Log("Hit Vector: " + hitVector);
         _rb.AddForce(hitVector, ForceMode.Impulse);
-        //_canShoot = false;
+
+        // Once Exit ready:
+        GameManager.Instance.OnPlayerExit();
+
     }
 }
