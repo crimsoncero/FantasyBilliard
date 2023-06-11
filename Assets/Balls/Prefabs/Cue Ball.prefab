@@ -20,7 +20,7 @@ PrefabInstance:
     - target: {fileID: 8784384085094395350, guid: 88e6b91887c774a49a8dff52d5e86288,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.16
+      value: -11.81
       objectReference: {fileID: 0}
     - target: {fileID: 8784384085094395350, guid: 88e6b91887c774a49a8dff52d5e86288,
         type: 3}
@@ -135,6 +135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00d4db26de8299641b190575e8426636, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _transform: {fileID: 6095383371179711026}
   _ballData: {fileID: 11400000, guid: 376b9166e29871a42a81f446e5c84a36, type: 2}
   _rb: {fileID: 5729313047869369752}
   _dissolve: 0
@@ -147,6 +148,12 @@ MonoBehaviour:
 --- !u!54 &5729313047869369752 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 7133099232874699388, guid: 88e6b91887c774a49a8dff52d5e86288,
+    type: 3}
+  m_PrefabInstance: {fileID: 3278409598626183140}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6095383371179711026 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8784384085094395350, guid: 88e6b91887c774a49a8dff52d5e86288,
     type: 3}
   m_PrefabInstance: {fileID: 3278409598626183140}
   m_PrefabAsset: {fileID: 0}
