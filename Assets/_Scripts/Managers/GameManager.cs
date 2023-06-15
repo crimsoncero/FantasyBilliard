@@ -109,7 +109,14 @@ public class GameManager : StaticInstance<GameManager>
 
     void OnPlayerUpdate()
     {
+        // Shooting - CanShoot = true
+        // Ability - CanAbility = true
+        // Penalty - Place Ball = true
+
+
+
     }
+
 
     public void OnPlayerExit()
     {

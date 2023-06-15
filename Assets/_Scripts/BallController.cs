@@ -87,8 +87,6 @@ public class BallController : BallHandler
         //Calculate hit vector
         Vector3 ballScreenPos = _camera.WorldToScreenPoint(transform.position);
         ballScreenPos.z = 0;
-        Debug.Log("Ball Point: " + ballScreenPos);
-        Debug.Log("Hit Point: " + Input.GetTouch(0).position);
         Vector3 touchPos = new Vector3(Input.GetTouch(0).position.x, Input.GetTouch(0).position.y, 0);
         Vector3 hitVector = (ballScreenPos - touchPos);
         hitVector = new Vector3(hitVector.x, hitVector.z, hitVector.y);
