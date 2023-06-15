@@ -6,8 +6,11 @@ public class BallController : BallHandler
 
   
 
-    //public bool canShoot;
     [SerializeField] private Camera _camera;
+    [SerializeField] private SpriteRenderer _magicCircleRenderer;
+    [SerializeField] private Transform _cueStick;
+
+
 
     [Header("Force Mapping")]
     [SerializeField] private float _forceMultiplier = 1.5f;
@@ -16,7 +19,11 @@ public class BallController : BallHandler
     [SerializeField] private float minForceOutput;
     [SerializeField] private float maxForceOutput;
 
-
+    [Header("Cue Stick Ranges")]
+    [SerializeField] private float minX = -6.3f;
+    [SerializeField] private float maxX = -10f;
+    [SerializeField] private float minZ = -1f;
+    [SerializeField] private float maxZ = -3f;
     
     private Vector3 _currentDirVector = Vector3.zero;
     private float _currentForce = 0;
@@ -67,7 +74,9 @@ public class BallController : BallHandler
                 }
             }
            
-        }   
+        }
+
+        UpdateIndicators();
     }
 
     protected override void FixedUpdate()
@@ -90,10 +99,8 @@ public class BallController : BallHandler
         Vector3 touchPos = new Vector3(Input.GetTouch(0).position.x, Input.GetTouch(0).position.y, 0);
         Vector3 hitVector = (ballScreenPos - touchPos);
         hitVector = new Vector3(hitVector.x, hitVector.z, hitVector.y);
-        Debug.Log("Initial Vector: " + hitVector);
 
         _currentDirVector = hitVector.normalized;
-        Debug.Log("Direction: " + _currentDirVector);
 
 
         float x = Mathf.Clamp(Mathf.Abs(hitVector.x), minForceInput, maxForceInput);
@@ -101,18 +108,34 @@ public class BallController : BallHandler
         float force = Vector2.Distance(Vector2.zero, new Vector2(x, z));
 
         _currentForce = math.remap(minForceInput, maxForceInput, minForceOutput, maxForceOutput, force);
-        Debug.Log("Force: " + _currentForce);
 
     }
 
     void Shoot()
     {
         Vector3 hitVector = _currentDirVector * (_currentForce * _forceMultiplier);
-        Debug.Log("Hit Vector: " + hitVector);
         _rb.AddForce(hitVector, ForceMode.Impulse);
 
         // Once Exit ready:
         GameManager.Instance.OnPlayerExit();
+
+    }
+
+
+    void UpdateIndicators()
+    {
+        _magicCircleRenderer.enabled = _canShoot;
+
+        if (_isAiming)
+        {
+            _cueStick.gameObject.SetActive(true);
+        }
+        else
+        {
+            _cueStick.gameObject.SetActive(false);
+
+        }
+
 
     }
 }
