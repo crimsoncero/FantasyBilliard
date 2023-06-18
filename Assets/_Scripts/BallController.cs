@@ -26,6 +26,8 @@ public class BallController : BallHandler
     [SerializeField] private SpriteRenderer _magicCircleRen;
     [SerializeField] private Transform _cueStick;
     [SerializeField] private LineRenderer _lineRen;
+    [SerializeField] private Sprite _p1CircleSprite;
+    [SerializeField] private Sprite _p2CircleSprite;
 
 
     [Header("Cue Stick Ranges")]
@@ -133,13 +135,17 @@ public class BallController : BallHandler
 
     void UpdateIndicators()
     {
+        if (GameManager.Instance.CurrentPlayer == Player.P1)
+            _magicCircleRen.sprite = _p1CircleSprite;
+        else
+            _magicCircleRen.sprite = _p2CircleSprite;
         _magicCircleRen.enabled = _canShoot;
 
         if (_isAiming)
         {
             float shotAngle = Vector3.SignedAngle(Vector3.right, _currentDirVector, Vector3.up);
             _indicatorRot.rotation = Quaternion.Euler(0, shotAngle, 0);
-            _cueStick.gameObject.SetActive(true);
+            //_cueStick.gameObject.SetActive(true);
 
             float stickX = math.remap(_minForceOutput, _maxForceOutput, _minStickX, _maxStickX, _currentForce);
             float stickY = math.remap(_minForceOutput, _maxForceOutput, _minStickY, _maxStickY, _currentForce);

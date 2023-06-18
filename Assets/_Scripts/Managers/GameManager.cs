@@ -77,9 +77,9 @@ public class GameManager : StaticInstance<GameManager>
 
 
         // Choose First Player to play.
-        CurrentPlayer = Random.Range(0,1) == 0 ? Player.P1 : Player.P2;
-        
-        
+        CurrentPlayer = Random.Range(0,2) == 0 ? Player.P1 : Player.P2;
+
+        Debug.Log(CurrentPlayer.ToString());
         
         
         

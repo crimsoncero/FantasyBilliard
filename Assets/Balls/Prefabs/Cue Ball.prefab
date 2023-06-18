@@ -154,6 +154,8 @@ MonoBehaviour:
   _magicCircleRen: {fileID: 0}
   _cueStick: {fileID: 0}
   _lineRen: {fileID: 0}
+  _p1CircleSprite: {fileID: 0}
+  _p2CircleSprite: {fileID: 0}
   _minStickX: -6.3
   _maxStickX: -10
   _minStickY: 1
