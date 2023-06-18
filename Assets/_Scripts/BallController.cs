@@ -114,9 +114,13 @@ public class BallController : BallHandler
         _currentDirVector = hitVector.normalized;
 
 
-        float x = Mathf.Clamp(Mathf.Abs(hitVector.x), _minForceInput, _maxForceInput);
-        float z = Mathf.Clamp(Mathf.Abs(hitVector.z), _minForceInput, _maxForceInput);
-        float force = Vector2.Distance(Vector2.zero, new Vector2(x, z));
+        //float x = Mathf.Clamp(Mathf.Abs(hitVector.x), _minForceInput, _maxForceInput);
+        //float z = Mathf.Clamp(Mathf.Abs(hitVector.z), _minForceInput, _maxForceInput);
+        //float force = Vector2.Distance(Vector2.zero, new Vector2(x, z));
+
+        float x = Mathf.Abs(hitVector.x);
+        float z = Mathf.Abs(hitVector.z);
+        float force = Mathf.Clamp(Vector2.Distance(Vector2.zero, new Vector2(x,z)), _minForceInput,_maxForceInput);
 
         _currentForce = math.remap(_minForceInput, _maxForceInput, _minForceOutput, _maxForceOutput, force);
 
@@ -125,6 +129,10 @@ public class BallController : BallHandler
     void Shoot()
     {
         Vector3 hitVector = _currentDirVector * (_currentForce * _forceMultiplier);
+
+        Debug.Log($"Shot Info: Init Force : {_currentForce} \n Force Multiplied : {_currentForce * _forceMultiplier}" +
+            $" HitVector : {hitVector}");
+
         _rb.AddForce(hitVector, ForceMode.Impulse);
 
         // Once Exit ready:

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Threading.Tasks;
 using Unity.Burst.CompilerServices;
 using UnityEngine;
@@ -72,6 +73,9 @@ public class GameManager : StaticInstance<GameManager>
                 P2BallType = ballData.BallType;
                 P1BallType = P2BallType == BallType.Solid ? BallType.Striped : BallType.Solid;
             }
+
+            Debug.Log($"P1 Type = {P1BallType}");
+            Debug.Log($"P2 Type = {P2BallType}");
         }
     }
 
@@ -203,7 +207,7 @@ public class GameManager : StaticInstance<GameManager>
         if (BallData.HasType(BallsInThisTurn,BallType.Black)) // 8 Ball in, game ends
         {
             BallType ballType = CurrentPlayer == Player.P1 ? P1BallType : P2BallType;
-            bool isWinner = BallData.HasType(BallsInGame, ballType) == false ? true : false; // Check if won or lost
+            bool isWinner = !BallData.HasType(BallsInGame, ballType); // Check if won or lost
             if (ballType == BallType.None) isWinner = false;
             OnEndingEnter(isWinner);
             yield break;
@@ -239,9 +243,29 @@ public class GameManager : StaticInstance<GameManager>
     void OnEndingEnter(bool isWinner)
     {
         CurrentState = GameState.Ending;
-        string winner = isWinner ? "P1" : "P2";
+        if (isWinner)
+        {
+            if(CurrentPlayer == Player.P1)
+            {
+                Debug.Log("P1 Wins");
+            }
+            else
+            {
+                Debug.Log("P2 Wins");
+            }
+        }
+        else
+        {
+            if (CurrentPlayer == Player.P1)
+            {
+                Debug.Log("P2 Wins");
+            }
+            else
+            {
+                Debug.Log("P1 Wins");
+            }
+        }
 
-        Debug.Log(winner + " Wins");
     }
     #endregion
     private bool AreBallsMoving()
