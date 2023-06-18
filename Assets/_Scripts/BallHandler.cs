@@ -20,6 +20,9 @@ public class BallHandler : MonoBehaviour
 
     private void Awake()
     {
+        _material = new Material(_ballData.Material);
+        _rb.GetComponent<MeshRenderer>().material = _material;
+        _material.SetTexture("_MainTex", _ballData.Texture);
         IsMoving = false;
     }
 
