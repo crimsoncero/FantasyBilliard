@@ -148,6 +148,7 @@ MonoBehaviour:
   _indicatorRot: {fileID: 0}
   _magicCircleRen: {fileID: 0}
   _cueStick: {fileID: 0}
+  _lineRen: {fileID: 0}
   minX: -6.3
   maxX: -10
   minZ: -1

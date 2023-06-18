@@ -1,3 +1,4 @@
+using Unity.Burst.CompilerServices;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -24,6 +25,7 @@ public class BallController : BallHandler
     [SerializeField] private Transform _indicatorRot;
     [SerializeField] private SpriteRenderer _magicCircleRen;
     [SerializeField] private Transform _cueStick;
+    [SerializeField] private LineRenderer _lineRen;
 
 
     [Header("Cue Stick Ranges")]
@@ -135,16 +137,31 @@ public class BallController : BallHandler
 
         if (_isAiming)
         {
-            float shotAngle = Vector3.SignedAngle(Vector3.right, _currentDirVector, Vector3.up);
-            _indicatorRot.rotation = Quaternion.AngleAxis(shotAngle, Vector3.up);
-            _cueStick.gameObject.SetActive(true);
+            //float shotAngle = Vector3.SignedAngle(Vector3.right, _currentDirVector, Vector3.up);
+            //_indicatorRot.rotation = Quaternion.AngleAxis(shotAngle, Vector3.up);
+            //_cueStick.gameObject.SetActive(true);
+            _lineRen.enabled = true;
+            DrawAimLine();
         }
         else
         {
-            _cueStick.gameObject.SetActive(false);
+            //_cueStick.gameObject.SetActive(false);
+            _lineRen.enabled = false;
+
 
         }
 
 
+    }
+
+
+    void DrawAimLine()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, _currentDirVector, out hit, Mathf.Infinity))
+        {
+            _lineRen.SetPosition(0, this.transform.position);
+            _lineRen.SetPosition(1, hit.point);
+        }
     }
 }
