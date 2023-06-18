@@ -143,7 +143,7 @@ public class BallController : BallHandler
 
             float stickX = math.remap(_minForceOutput, _maxForceOutput, _minStickX, _maxStickX, _currentForce);
             float stickY = math.remap(_minForceOutput, _maxForceOutput, _minStickY, _maxStickY, _currentForce);
-            _cueStick.position.Set(stickX, stickY, 0); 
+            _cueStick.SetLocalPositionAndRotation(new Vector3(stickX, stickY, 0), _cueStick.localRotation);
 
 
             _lineRen.enabled = true;

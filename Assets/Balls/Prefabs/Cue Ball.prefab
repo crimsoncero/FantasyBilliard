@@ -12,6 +12,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cue Ball
       objectReference: {fileID: 0}
+    - target: {fileID: 3053582840737370987, guid: 88e6b91887c774a49a8dff52d5e86288,
+        type: 3}
+      propertyPath: m_TagString
+      value: Cue Ball
+      objectReference: {fileID: 0}
     - target: {fileID: 8784384085094395350, guid: 88e6b91887c774a49a8dff52d5e86288,
         type: 3}
       propertyPath: m_RootOrder
@@ -141,18 +146,18 @@ MonoBehaviour:
   _dissolve: 0
   _camera: {fileID: 0}
   _forceMultiplier: 1
-  minForceInput: 5
-  maxForceInput: 150
-  minForceOutput: 0.2
-  maxForceOutput: 30
+  _minForceInput: 5
+  _maxForceInput: 150
+  _minForceOutput: 0.2
+  _maxForceOutput: 30
   _indicatorRot: {fileID: 0}
   _magicCircleRen: {fileID: 0}
   _cueStick: {fileID: 0}
   _lineRen: {fileID: 0}
-  minX: -6.3
-  maxX: -10
-  minZ: -1
-  maxZ: -3
+  _minStickX: -6.3
+  _maxStickX: -10
+  _minStickY: 1
+  _maxStickY: 2
 --- !u!54 &5729313047869369752 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 7133099232874699388, guid: 88e6b91887c774a49a8dff52d5e86288,
