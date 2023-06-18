@@ -14,10 +14,10 @@ public class BallController : BallHandler
 
     [Header("Force Mapping")]
     [SerializeField] private float _forceMultiplier = 1.5f;
-    [SerializeField] private float minForceInput;
-    [SerializeField] private float maxForceInput;
-    [SerializeField] private float minForceOutput;
-    [SerializeField] private float maxForceOutput;
+    [SerializeField] private float _minForceInput;
+    [SerializeField] private float _maxForceInput;
+    [SerializeField] private float _minForceOutput;
+    [SerializeField] private float _maxForceOutput;
 
 
 
@@ -29,10 +29,10 @@ public class BallController : BallHandler
 
 
     [Header("Cue Stick Ranges")]
-    [SerializeField] private float minX = -6.3f;
-    [SerializeField] private float maxX = -10f;
-    [SerializeField] private float minZ = -1f;
-    [SerializeField] private float maxZ = -3f;
+    [SerializeField] private float _minStickX = -6.3f;
+    [SerializeField] private float _maxStickX = -10f;
+    [SerializeField] private float _minStickY = 1f;
+    [SerializeField] private float _maxStickY = 2f;
     
     private Vector3 _currentDirVector = Vector3.zero;
     private float _currentForce = 0;
@@ -112,11 +112,11 @@ public class BallController : BallHandler
         _currentDirVector = hitVector.normalized;
 
 
-        float x = Mathf.Clamp(Mathf.Abs(hitVector.x), minForceInput, maxForceInput);
-        float z = Mathf.Clamp(Mathf.Abs(hitVector.z), minForceInput, maxForceInput);
+        float x = Mathf.Clamp(Mathf.Abs(hitVector.x), _minForceInput, _maxForceInput);
+        float z = Mathf.Clamp(Mathf.Abs(hitVector.z), _minForceInput, _maxForceInput);
         float force = Vector2.Distance(Vector2.zero, new Vector2(x, z));
 
-        _currentForce = math.remap(minForceInput, maxForceInput, minForceOutput, maxForceOutput, force);
+        _currentForce = math.remap(_minForceInput, _maxForceInput, _minForceOutput, _maxForceOutput, force);
 
     }
 
@@ -140,6 +140,12 @@ public class BallController : BallHandler
             float shotAngle = Vector3.SignedAngle(Vector3.right, _currentDirVector, Vector3.up);
             _indicatorRot.rotation = Quaternion.Euler(0, shotAngle, 0);
             _cueStick.gameObject.SetActive(true);
+
+            float stickX = math.remap(_minForceOutput, _maxForceOutput, _minStickX, _maxStickX, _currentForce);
+            float stickY = math.remap(_minForceOutput, _maxForceOutput, _minStickY, _maxStickY, _currentForce);
+            _cueStick.position.Set(stickX, stickY, 0); 
+
+
             _lineRen.enabled = true;
             DrawAimLine();
         }
@@ -153,6 +159,7 @@ public class BallController : BallHandler
 
 
     }
+    
 
 
     void DrawAimLine()
