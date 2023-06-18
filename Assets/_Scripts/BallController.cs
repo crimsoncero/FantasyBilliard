@@ -137,15 +137,15 @@ public class BallController : BallHandler
 
         if (_isAiming)
         {
-            //float shotAngle = Vector3.SignedAngle(Vector3.right, _currentDirVector, Vector3.up);
-            //_indicatorRot.rotation = Quaternion.AngleAxis(shotAngle, Vector3.up);
-            //_cueStick.gameObject.SetActive(true);
+            float shotAngle = Vector3.SignedAngle(Vector3.right, _currentDirVector, Vector3.up);
+            _indicatorRot.rotation = Quaternion.Euler(0,0, shotAngle);
+            _cueStick.gameObject.SetActive(true);
             _lineRen.enabled = true;
             DrawAimLine();
         }
         else
         {
-            //_cueStick.gameObject.SetActive(false);
+            _cueStick.gameObject.SetActive(false);
             _lineRen.enabled = false;
 
 

@@ -52,7 +52,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c45b8d34f53ece14a8dbdaecb6f06ccb, type: 2}
+  - {fileID: 10301, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,31 +83,40 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.03472222
-        value: 0.31451565
+        time: 0.01388889
+        value: 0.6532258
         inSlope: 0
         outSlope: 0
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0.37903127
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
-      key2: {r: 0, g: 0, b: 0, a: 0}
-      key3: {r: 0, g: 0, b: 0, a: 0}
+      key0: {r: 0.509434, g: 0, b: 0, a: 1}
+      key1: {r: 0.509434, g: 0, b: 0, a: 1}
+      key2: {r: 1, g: 0.017906645, b: 0.017906645, a: 0}
+      key3: {r: 1, g: 1, b: 1, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
       key6: {r: 0, g: 0, b: 0, a: 0}
       key7: {r: 0, g: 0, b: 0, a: 0}
       ctime0: 0
       ctime1: 65535
-      ctime2: 0
-      ctime3: 0
+      ctime2: 65535
+      ctime3: 65535
       ctime4: 0
       ctime5: 0
       ctime6: 0
@@ -126,7 +135,7 @@ LineRenderer:
     numCornerVertices: 0
     numCapVertices: 0
     alignment: 0
-    textureMode: 0
+    textureMode: 1
     shadowBias: 0.5
     generateLightingData: 0
   m_UseWorldSpace: 1
@@ -280,14 +289,13 @@ GameObject:
   - component: {fileID: 6725117931735006443}
   - component: {fileID: 6725117931735006446}
   - component: {fileID: 6725117931735006441}
-  - component: {fileID: 6725117931735006440}
   m_Layer: 0
   m_Name: Cue Stick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6725117931735006443
 Transform:
   m_ObjectHideFlags: 0
@@ -295,14 +303,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6725117931735006442}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: -0.05547891, y: -0.05547891, z: 0.704927, w: 0.704927}
   m_LocalPosition: {x: -6.300001, y: 0, z: -1}
   m_LocalScale: {x: 0.29999992, y: 6, z: 0.29999995}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4763318510832618335}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: -9, z: 90}
 --- !u!33 &6725117931735006446
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -353,17 +361,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &6725117931735006440
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6725117931735006442}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
