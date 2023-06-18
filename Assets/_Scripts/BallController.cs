@@ -7,8 +7,7 @@ public class BallController : BallHandler
   
 
     [SerializeField] private Camera _camera;
-    [SerializeField] private SpriteRenderer _magicCircleRenderer;
-    [SerializeField] private Transform _cueStick;
+    
 
 
 
@@ -18,6 +17,14 @@ public class BallController : BallHandler
     [SerializeField] private float maxForceInput;
     [SerializeField] private float minForceOutput;
     [SerializeField] private float maxForceOutput;
+
+
+
+    [Header("Shot Indicator Links")]
+    [SerializeField] private Transform _indicatorRot;
+    [SerializeField] private SpriteRenderer _magicCircleRen;
+    [SerializeField] private Transform _cueStick;
+
 
     [Header("Cue Stick Ranges")]
     [SerializeField] private float minX = -6.3f;
@@ -124,10 +131,12 @@ public class BallController : BallHandler
 
     void UpdateIndicators()
     {
-        _magicCircleRenderer.enabled = _canShoot;
+        _magicCircleRen.enabled = _canShoot;
 
         if (_isAiming)
         {
+            float shotAngle = Vector3.SignedAngle(Vector3.right, _currentDirVector, Vector3.up);
+            _indicatorRot.rotation = Quaternion.AngleAxis(shotAngle, Vector3.up);
             _cueStick.gameObject.SetActive(true);
         }
         else
