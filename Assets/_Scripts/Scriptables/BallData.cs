@@ -5,6 +5,7 @@ using UnityEngine.AddressableAssets;
 
 public enum BallType
 {
+    None,
     Cue,
     Solid,
     Striped,
@@ -22,4 +23,18 @@ public class BallData : ScriptableObject
     public BallType BallType;
     public Texture2D Texture;
     public Material Material;
+
+
+    public static bool HasType (List<BallData> ballDataList, BallType type)
+    {
+        foreach (BallData ball in ballDataList)
+        {
+            if(ball.BallType == type) return true;
+        }
+        return false;
+    }
+
+
+
+
 }

@@ -1,3 +1,4 @@
+using DG.Tweening;
 using Unity.Burst.CompilerServices;
 using Unity.Mathematics;
 using UnityEngine;
@@ -7,7 +8,6 @@ public class BallController : BallHandler
 
   
 
-    [SerializeField] private Camera _camera;
     
 
 
@@ -105,7 +105,7 @@ public class BallController : BallHandler
     void UpdateAimVector()
     {
         //Calculate hit vector
-        Vector3 ballScreenPos = _camera.WorldToScreenPoint(transform.position);
+        Vector3 ballScreenPos = GameManager.Instance.MainCamera.WorldToScreenPoint(transform.position);
         ballScreenPos.z = 0;
         Vector3 touchPos = new Vector3(Input.GetTouch(0).position.x, Input.GetTouch(0).position.y, 0);
         Vector3 hitVector = (ballScreenPos - touchPos);
@@ -165,8 +165,18 @@ public class BallController : BallHandler
 
 
     }
-    
 
+    public void Appear(Vector3 pos)
+    {
+        float appearTime = 2f;
+
+        _rb.isKinematic = false;
+        _rb.detectCollisions = true;
+        _transform.position = pos;
+        DOVirtual.Float(1, 0, appearTime, v => _material.SetFloat("_Dissolve", v));
+
+
+    }
 
     void DrawAimLine()
     {

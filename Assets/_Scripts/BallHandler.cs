@@ -11,9 +11,9 @@ public class BallHandler : MonoBehaviour
     [SerializeField] protected Rigidbody _rb;
     [SerializeField]
     [Range(0f, 1f)] protected float _dissolve = 0;
-    
-    
-    
+
+
+    public BallData BallData { get { return _ballData; } }
     protected Material _material;
 
 
@@ -82,8 +82,8 @@ public class BallHandler : MonoBehaviour
         float appearTime = 3f;
         float appearHeight = 5f;
 
-        _rb.isKinematic = true;
-        _rb.detectCollisions = false;
+        _rb.isKinematic = false;
+        _rb.detectCollisions = true;
 
         _transform.position = new Vector3(transform.position.x, transform.position.y + appearHeight, transform.position.z);
 

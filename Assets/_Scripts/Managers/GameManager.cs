@@ -1,13 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 public class GameManager : StaticInstance<GameManager>
 {
     public BallController CueBall;
     public BallHandler[] Balls;
-
+    public RectTransform PlacementArea;
+    public Camera MainCamera;
 
 
 
@@ -16,7 +18,7 @@ public class GameManager : StaticInstance<GameManager>
     public bool CanAbility { get; set; }
 
     // Game Data
-    public List<BallData> BallsInThisGame { get; private set; }
+    public List<BallData> BallsInGame { get; private set; }
     public GameState CurrentState { get; private set; }
     public Player CurrentPlayer { get; private set; }
     public TurnType CurrentTurnType { get; private set; }
@@ -25,6 +27,7 @@ public class GameManager : StaticInstance<GameManager>
     public bool IsPausing { get; private set; }
 
     // Turn Data
+    public PlayerAction CurrentAction { get; private set; }
     public BallData FirstContact { get; set; }
     public List<BallData> BallsInThisTurn { get; private set; }
 
@@ -33,7 +36,7 @@ public class GameManager : StaticInstance<GameManager>
     private void Start()
     {
         IsPausing = false;
-        CurrentState = GameState.Starting;
+        CurrentState = GameState.Ending;
         OnStartingEnter();
     }
  
@@ -43,7 +46,7 @@ public class GameManager : StaticInstance<GameManager>
     {
         _ballsMoving = AreBallsMoving();
 
-        if(CurrentState == GameState.Player && !IsPausing) 
+        if (CurrentState == GameState.Player && !IsPausing)
         {
             OnPlayerUpdate();
         }
@@ -52,9 +55,24 @@ public class GameManager : StaticInstance<GameManager>
 
     public void EnteredHole(BallData ballData)
     {
-
         BallsInThisTurn.Add(ballData);
-        BallsInThisGame.Add(ballData);
+        BallsInGame.Remove(ballData);
+
+        if (P1BallType == BallType.None) // Assign Ball Type on first ball entered
+        {
+            if (ballData.BallType == BallType.Cue || ballData.BallType == BallType.Black) return; // Do not count cue and black balls for ball type.
+            
+            if (CurrentPlayer == Player.P1)
+            {
+                P1BallType = ballData.BallType;
+                P2BallType = P1BallType == BallType.Solid ? BallType.Striped : BallType.Solid;
+            }
+            else
+            {
+                P2BallType = ballData.BallType;
+                P1BallType = P2BallType == BallType.Solid ? BallType.Striped : BallType.Solid;
+            }
+        }
     }
 
     public void PauseToggle()
@@ -70,16 +88,20 @@ public class GameManager : StaticInstance<GameManager>
     #region State Machine
     void OnStartingEnter()
     {
+
         // Data Init:
-        BallsInThisGame = new List<BallData>();
+        BallsInGame = new List<BallData>();
+        foreach(var ball in Balls)
+        {
+            BallsInGame.Add(ball.BallData);
+        }
         CanShoot = false;
         CanAbility = false;
 
 
         // Choose First Player to play.
         CurrentPlayer = Random.Range(0,2) == 0 ? Player.P1 : Player.P2;
-
-        Debug.Log(CurrentPlayer.ToString());
+        CurrentTurnType = TurnType.Normal;
         
         
         
@@ -98,28 +120,75 @@ public class GameManager : StaticInstance<GameManager>
 
     void OnPlayerEnter()
     {
-        // Data Init:
+        Debug.Log($"On Player Enter : {CurrentPlayer} - {CurrentTurnType}");
+        
         BallsInThisTurn = new List<BallData>();
         FirstContact = null;
 
+        switch (CurrentTurnType)
+        {
+            case TurnType.Normal:
+            case TurnType.Extra:
+                CurrentAction = PlayerAction.Shooting;
+                break;
+            case TurnType.Penalty:
+                CurrentAction = PlayerAction.Penalty;
+                break;
+        }
 
         CurrentState = GameState.Player;
-        CanShoot = true;
     }
 
     void OnPlayerUpdate()
     {
-        // Shooting - CanShoot = true
-        // Ability - CanAbility = true
-        // Penalty - Place Ball = true
-
+        switch (CurrentAction)
+        {
+            case PlayerAction.Penalty:
+                CanShoot = false;
+                CanAbility = false;
+                PlaceBallPenalty();
+                break;
+            case PlayerAction.Shooting:
+                CanShoot = true;
+                CanAbility = false;
+                break;
+            case PlayerAction.Ability:
+                CanShoot = false;
+                CanAbility = true;
+                break;
+        }
 
 
     }
 
+    void PlaceBallPenalty()
+    {
+        if(Input.touchCount > 0)
+        {
+            if (Input.GetTouch(0).phase == TouchPhase.Began)
+            {
+                Ray ray = MainCamera.ScreenPointToRay(Input.GetTouch(0).position);
+                RaycastHit hit;
+
+                if(Physics.Raycast(ray, out hit))
+                {
+
+                    if (Mathf.Abs(hit.point.x) < PlacementArea.localScale.x / 2 &&
+                        Mathf.Abs(hit.point.z) < PlacementArea.localScale.y / 2)
+                    {
+                        CueBall.Appear(new Vector3(hit.point.x, 0, hit.point.z));
+                        CurrentAction = PlayerAction.Shooting;
+
+                    }
+                }
+                
+            }
+        }
+    }
 
     public void OnPlayerExit()
     {
+        CurrentState = GameState.Wait;
         StartCoroutine(OnPlayerExitCoroutine());
     }
 
@@ -128,24 +197,23 @@ public class GameManager : StaticInstance<GameManager>
         CanShoot = false;
         yield return new WaitForSeconds(1f);
         yield return new WaitUntil(() => _ballsMoving == false);
-        CanShoot = true;
 
-        if (false) // 8 Ball in, game ends
+
+
+        if (BallData.HasType(BallsInThisTurn,BallType.Black)) // 8 Ball in, game ends
         {
-            bool isWinner = false; // Check if won or lost
-            OnEndingEnter(true);
+            BallType ballType = CurrentPlayer == Player.P1 ? P1BallType : P2BallType;
+            bool isWinner = BallData.HasType(BallsInGame, ballType) == false ? true : false; // Check if won or lost
+            if (ballType == BallType.None) isWinner = false;
+            OnEndingEnter(isWinner);
+            yield break;
         }
-        else if (false) // Cue Ball in, penalty for opponent.
-        {
-            CurrentPlayer = CurrentPlayer == Player.P1 ? Player.P2 : Player.P1;
-            CurrentTurnType = TurnType.PenaltyEx;
-        }
-        else if (false) // First contact was not player's ball.
+        else if (CheckPenalty()) // First contact was not player's ball or entered white ball.
         {
             CurrentPlayer = CurrentPlayer == Player.P1 ? Player.P2 : Player.P1;
             CurrentTurnType = TurnType.Penalty;
         }
-        else if (false) // Scored a ball - Another turn.
+        else if (BallsInThisTurn.Count > 0) // Scored a ball - Another turn.
         {
             CurrentTurnType = TurnType.Extra;
         }
@@ -155,12 +223,25 @@ public class GameManager : StaticInstance<GameManager>
             CurrentTurnType = TurnType.Normal;
         }
 
-        //OnPlayerEnter();
+        OnPlayerEnter();
+    }
+
+    private bool CheckPenalty()
+    {
+        BallType ballType = CurrentPlayer == Player.P1 ? P1BallType : P2BallType;
+        if (FirstContact == null) return true;
+        if (FirstContact.BallType == BallType.Black) return true;
+        if (FirstContact.BallType != ballType && ballType != BallType.None) return true;
+        if (BallData.HasType(BallsInThisTurn, BallType.Cue)) return true;
+        return false;
     }
 
     void OnEndingEnter(bool isWinner)
     {
+        CurrentState = GameState.Ending;
+        string winner = isWinner ? "P1" : "P2";
 
+        Debug.Log(winner + " Wins");
     }
     #endregion
     private bool AreBallsMoving()
@@ -188,7 +269,6 @@ public enum TurnType
     Normal,
     Extra,
     Penalty,
-    PenaltyEx,
 }
 
 public enum Player
@@ -197,9 +277,18 @@ public enum Player
     P2,
 }
 
+public enum PlayerAction
+{
+    Penalty,
+    Shooting,
+    Ability,
+}
+
 public enum GameState
 {
     Starting,
     Player,
     Ending,
+    Pause,
+    Wait,
 }
