@@ -17,6 +17,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Cue Ball
       objectReference: {fileID: 0}
+    - target: {fileID: 7133099232874699388, guid: 88e6b91887c774a49a8dff52d5e86288,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 8784384085094395350, guid: 88e6b91887c774a49a8dff52d5e86288,
         type: 3}
       propertyPath: m_RootOrder

@@ -31,8 +31,12 @@ public class GameManager : StaticInstance<GameManager>
     public PlayerAction CurrentAction { get; private set; }
     public BallData FirstContact { get; set; }
     public List<BallData> BallsInThisTurn { get; private set; }
-
+    private bool _checkBallsMoving = false;
     private bool _ballsMoving = false;
+
+
+    private BallType CurrentPlayerBallType { get { return CurrentPlayer == Player.P1 ? P1BallType : P2BallType; } }
+
 
     private void Start()
     {
@@ -45,7 +49,8 @@ public class GameManager : StaticInstance<GameManager>
     // Update is called once per frame
     void Update()
     {
-        _ballsMoving = AreBallsMoving();
+        if(CurrentState == GameState.Wait)
+            _ballsMoving = AreBallsMoving();
 
         if (CurrentState == GameState.Player && !IsPausing)
         {
@@ -234,7 +239,8 @@ public class GameManager : StaticInstance<GameManager>
     {
         BallType ballType = CurrentPlayer == Player.P1 ? P1BallType : P2BallType;
         if (FirstContact == null) return true;
-        if (FirstContact.BallType == BallType.Black) return true;
+        if (FirstContact.BallType == BallType.Black && 
+            BallData.HasType(BallsInGame, CurrentPlayerBallType)) return true;
         if (FirstContact.BallType != ballType && ballType != BallType.None) return true;
         if (BallData.HasType(BallsInThisTurn, BallType.Cue)) return true;
         return false;

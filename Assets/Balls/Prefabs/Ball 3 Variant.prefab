@@ -17,6 +17,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 7133099232874699388, guid: 88e6b91887c774a49a8dff52d5e86288,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 7555582817043200738, guid: 88e6b91887c774a49a8dff52d5e86288,
         type: 3}
       propertyPath: _ballData
