@@ -6,11 +6,6 @@ using UnityEngine;
 public class BallController : BallHandler
 {
 
-  
-
-    
-
-
 
     [Header("Force Mapping")]
     [SerializeField] private float _forceMultiplier = 1.5f;
@@ -22,19 +17,15 @@ public class BallController : BallHandler
 
 
     [Header("Shot Indicator Links")]
-    [SerializeField] private Transform _indicatorRot;
     [SerializeField] private SpriteRenderer _magicCircleRen;
-    [SerializeField] private Transform _cueStick;
     [SerializeField] private LineRenderer _lineRen;
     [SerializeField] private Sprite _p1CircleSprite;
     [SerializeField] private Sprite _p2CircleSprite;
 
 
     [Header("Cue Stick Ranges")]
-    [SerializeField] private float _minStickX = -6.3f;
-    [SerializeField] private float _maxStickX = -10f;
-    [SerializeField] private float _minStickY = 1f;
-    [SerializeField] private float _maxStickY = 2f;
+    [SerializeField] private float _minAim = 0.5f;
+    [SerializeField] private float _maxAim = 50f;
     
     private Vector3 _currentDirVector = Vector3.zero;
     private float _currentForce = 0;
@@ -113,11 +104,6 @@ public class BallController : BallHandler
 
         _currentDirVector = hitVector.normalized;
 
-
-        //float x = Mathf.Clamp(Mathf.Abs(hitVector.x), _minForceInput, _maxForceInput);
-        //float z = Mathf.Clamp(Mathf.Abs(hitVector.z), _minForceInput, _maxForceInput);
-        //float force = Vector2.Distance(Vector2.zero, new Vector2(x, z));
-
         float x = Mathf.Abs(hitVector.x);
         float z = Mathf.Abs(hitVector.z);
         float force = Mathf.Clamp(Vector2.Distance(Vector2.zero, new Vector2(x,z)), _minForceInput,_maxForceInput);
@@ -151,24 +137,12 @@ public class BallController : BallHandler
 
         if (_isAiming)
         {
-            float shotAngle = Vector3.SignedAngle(Vector3.right, _currentDirVector, Vector3.up);
-            _indicatorRot.rotation = Quaternion.Euler(0, shotAngle, 0);
-            //_cueStick.gameObject.SetActive(true);
-
-            float stickX = math.remap(_minForceOutput, _maxForceOutput, _minStickX, _maxStickX, _currentForce);
-            float stickY = math.remap(_minForceOutput, _maxForceOutput, _minStickY, _maxStickY, _currentForce);
-            _cueStick.SetLocalPositionAndRotation(new Vector3(stickX, stickY, 0), _cueStick.localRotation);
-
-
             _lineRen.enabled = true;
             DrawAimLine();
         }
         else
         {
-            _cueStick.gameObject.SetActive(false);
             _lineRen.enabled = false;
-
-
         }
 
 
@@ -192,7 +166,17 @@ public class BallController : BallHandler
         if (Physics.Raycast(transform.position, _currentDirVector, out hit, Mathf.Infinity))
         {
             _lineRen.SetPosition(0, this.transform.position);
-            _lineRen.SetPosition(1, hit.point);
+
+            float forceDist = Vector3.Distance(_currentDirVector * (_currentForce * 1f), this.transform.position);
+
+            if(forceDist < hit.distance)
+            {
+                _lineRen.SetPosition(1, this.transform.position + (_currentDirVector * (_currentForce * 1f)));
+            }
+            else
+            {
+                _lineRen.SetPosition(1, hit.point);
+            }
         }
     }
 }

@@ -287,27 +287,24 @@ public class GameManager : StaticInstance<GameManager>
     }
 }
 
-
+#region Enums
 public enum TurnType
 {
     Normal,
     Extra,
     Penalty,
 }
-
 public enum Player
 {
     P1,
     P2,
 }
-
 public enum PlayerAction
 {
     Penalty,
     Shooting,
     Ability,
 }
-
 public enum GameState
 {
     Starting,
@@ -316,3 +313,4 @@ public enum GameState
     Pause,
     Wait,
 }
+#endregion

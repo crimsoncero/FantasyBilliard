@@ -149,16 +149,12 @@ MonoBehaviour:
   _maxForceInput: 300
   _minForceOutput: 0.1
   _maxForceOutput: 55
-  _indicatorRot: {fileID: 0}
   _magicCircleRen: {fileID: 0}
-  _cueStick: {fileID: 0}
   _lineRen: {fileID: 0}
   _p1CircleSprite: {fileID: -1989725073, guid: 9ffe2e8aa5bb5774d8f3cc84bed31ae4, type: 3}
   _p2CircleSprite: {fileID: -1268632453, guid: 9ffe2e8aa5bb5774d8f3cc84bed31ae4, type: 3}
-  _minStickX: -6.3
-  _maxStickX: -10
-  _minStickY: 1
-  _maxStickY: 2
+  _minAim: 0.5
+  _maxAim: 50
 --- !u!54 &5729313047869369752 stripped
 Rigidbody:
   m_CorrespondingSourceObject: {fileID: 7133099232874699388, guid: 88e6b91887c774a49a8dff52d5e86288,
