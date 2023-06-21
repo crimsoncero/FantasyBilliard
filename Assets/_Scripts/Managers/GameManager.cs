@@ -232,6 +232,13 @@ public class GameManager : StaticInstance<GameManager>
             CurrentTurnType = TurnType.Normal;
         }
 
+        /* Call UI Manager to Show banner for turn switch ---
+        *
+        *
+        *
+        *
+        *//////////////////////////////////////////////////////
+
         OnPlayerEnter();
     }
 
