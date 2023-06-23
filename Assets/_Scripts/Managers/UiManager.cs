@@ -11,38 +11,38 @@ public class UiManager : Singleton<UiManager>
 
 
     #region API Calls
-    public Sequence P1BannerFlash()
-    {
-        return FlashElement(_UIELEMENTTEXT, _genericFlashTiming);
+    //public Sequence P1BannerFlash()
+    //{
+    //    return FlashElement(_UIELEMENTTEXT, _genericFlashTiming);
 
-    }
-
-
-    #endregion
+    //}
 
 
-    #region Generic Methods
+    //#endregion
 
 
-    /// <summary>
-    /// Generic method that flashes a given UI element 
-    /// </summary>
-    /// <param name="banner"></param>
-    /// <returns></returns>
-    private Sequence FlashElement(GameObject element, Vector3 flashTimings)
-    {
-        Sequence seq = DOTween.Sequence();
+    //#region Generic Methods
 
-        Tween flashIn;
-        Tween flashOut;
 
-        seq.Append(flashIn);
-        seq.AppendInterval(flashTimings.y);
-        seq.Append(flashOut);
+    ///// <summary>
+    ///// Generic method that flashes a given UI element 
+    ///// </summary>
+    ///// <param name="banner"></param>
+    ///// <returns></returns>
+    //private Sequence FlashElement(GameObject element, Vector3 flashTimings)
+    //{
+    //    Sequence seq = DOTween.Sequence();
 
-        return seq;
+    //    Tween flashIn;
+    //    Tween flashOut;
 
-    }
+    //    seq.Append(flashIn);
+    //    seq.AppendInterval(flashTimings.y);
+    //    seq.Append(flashOut);
+
+    //    return seq;
+
+    //}
 
    
 

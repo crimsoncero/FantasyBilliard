@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Reflection;
 using System.Threading.Tasks;
 using Unity.Burst.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : StaticInstance<GameManager>
@@ -27,6 +28,7 @@ public class GameManager : StaticInstance<GameManager>
     public BallType P1BallType { get; private set; }
     public BallType P2BallType { get; private set; }
     public bool IsPausing { get; private set; }
+    public bool TypeSetThisTurn { get; private set; }
 
     // Turn Data
     public PlayerAction CurrentAction { get; private set; }
@@ -35,7 +37,7 @@ public class GameManager : StaticInstance<GameManager>
 
 
     private BallType CurrentPlayerBallType { get { return CurrentPlayer == Player.P1 ? P1BallType : P2BallType; } }
-
+    private UiManager UI { get { return UiManager.Instance; } }
 
     private void Start()
     {
@@ -48,7 +50,6 @@ public class GameManager : StaticInstance<GameManager>
     // Update is called once per frame
     void Update()
     {
-
         if (CurrentState == GameState.Player && !IsPausing)
         {
             OnPlayerUpdate();
@@ -75,7 +76,7 @@ public class GameManager : StaticInstance<GameManager>
                 P2BallType = ballData.BallType;
                 P1BallType = P2BallType == BallType.Solid ? BallType.Striped : BallType.Solid;
             }
-
+            TypeSetThisTurn = true;
             Debug.Log($"P1 Type = {P1BallType}");
             Debug.Log($"P2 Type = {P2BallType}");
         }
@@ -103,7 +104,7 @@ public class GameManager : StaticInstance<GameManager>
         }
         CanShoot = false;
         CanAbility = false;
-
+        
 
         // Choose First Player to play.
         CurrentPlayer = Random.Range(0,2) == 0 ? Player.P1 : Player.P2;
@@ -123,22 +124,36 @@ public class GameManager : StaticInstance<GameManager>
         OnPlayerEnter();
     }
 
-
-    void OnPlayerEnter()
+    private void OnPlayerEnter()
     {
-
         Debug.Log($"On Player Enter : {CurrentPlayer} - {CurrentTurnType}");
+        StartCoroutine(OnPlayerEnterCoroutine());
+    }
+    private IEnumerator OnPlayerEnterCoroutine()
+    {
         
         BallsInThisTurn = new List<BallData>();
         FirstContact = null;
+        TypeSetThisTurn = false;
+
+
+        //Sequence playerSeq = CurrentPlayer == Player.P1 ? UI.P1Flash : UI.P2Flash;
+        yield return null;
+
 
         switch (CurrentTurnType)
         {
             case TurnType.Normal:
+                //yield return playerSeq.WaitForCompletion();
+                CurrentAction = PlayerAction.Shooting;
+                break;
             case TurnType.Extra:
+                //yield return UI.ExtraFlash().WaitForCompletion();
                 CurrentAction = PlayerAction.Shooting;
                 break;
             case TurnType.Penalty:
+                //yield return UI.PenaltyFlash().WaitForCompletion();
+                //yield return playerSeq.WaitForCompletion();
                 CurrentAction = PlayerAction.Penalty;
                 break;
         }
@@ -146,7 +161,7 @@ public class GameManager : StaticInstance<GameManager>
         CurrentState = GameState.Player;
     }
 
-    void OnPlayerUpdate()
+    private void OnPlayerUpdate()
     {
         switch (CurrentAction)
         {
@@ -168,7 +183,7 @@ public class GameManager : StaticInstance<GameManager>
 
     }
 
-    void PlaceBallPenalty()
+    private void PlaceBallPenalty()
     {
         if(Input.touchCount > 0)
         {
@@ -202,12 +217,14 @@ public class GameManager : StaticInstance<GameManager>
     private IEnumerator OnPlayerExitCoroutine()
     {
         CanShoot = false;
-
+        yield return new WaitForSeconds(2f);
         while (AreBallsMoving())
         {
             yield return new WaitForSeconds(0.1f);
         }
 
+
+  
 
 
         if (BallData.HasType(BallsInThisTurn,BallType.Black)) // 8 Ball in, game ends
@@ -233,28 +250,26 @@ public class GameManager : StaticInstance<GameManager>
             CurrentTurnType = TurnType.Normal;
         }
 
-        Sequence sequence = UiManager.Instance.P1BannerFlash();
-        
-        yield return sequence.WaitForCompletion();
-
-        /* Call UI Manager to Show banner for turn switch ---
-        *
-        *
-        *
-        *
-        *//////////////////////////////////////////////////////
-
         OnPlayerEnter();
     }
 
     private bool CheckPenalty()
     {
-        BallType ballType = CurrentPlayer == Player.P1 ? P1BallType : P2BallType;
-        if (FirstContact == null) return true;
-        if (FirstContact.BallType == BallType.Black && 
-            BallData.HasType(BallsInGame, CurrentPlayerBallType)) return true;
-        if (FirstContact.BallType != ballType && ballType != BallType.None) return true;
-        if (BallData.HasType(BallsInThisTurn, BallType.Cue)) return true;
+        BallType ballType = CurrentPlayerBallType;
+
+        if (FirstContact == null) { Debug.Log("No Touch"); return true; } // Made no contact
+        
+        if(!TypeSetThisTurn && ballType != BallType.None)
+        {
+            if (FirstContact.BallType != ballType) // First Contact was not the player's ball type
+            {
+                // Check if not hit the black ball when it is the last ball.
+                if (!(FirstContact.BallType == BallType.Black && !BallData.HasType(BallsInGame, ballType))) { Debug.Log("Hit Wrong Ball"); return true; }
+
+            }
+        }
+        
+        if (BallData.HasType(BallsInThisTurn, BallType.Cue)) { Debug.Log("Entered Cue Ball"); return true; };
         return false;
     }
 
