@@ -11,10 +11,12 @@ public class UiManager : Singleton<UiManager>
 
 
     #region API Calls
-    public IEnumerator P1BannerFlash()
+    public Sequence P1BannerFlash()
     {
-        yield return StartCoroutine(FlashElement(_UIELEMENTTEXT,_genericFlashTiming));
+        return FlashElement(_UIELEMENTTEXT, _genericFlashTiming);
+
     }
+
 
     #endregion
 
@@ -27,47 +29,22 @@ public class UiManager : Singleton<UiManager>
     /// </summary>
     /// <param name="banner"></param>
     /// <returns></returns>
-    private IEnumerator FlashElement(GameObject element, Vector3 flashTimings)
+    private Sequence FlashElement(GameObject element, Vector3 flashTimings)
     {
+        Sequence seq = DOTween.Sequence();
 
-        yield return StartCoroutine(FlashInElement(element, flashTimings.x));  // Flash In.
-                                                                               // Wait
-        yield return new WaitForSeconds(flashTimings.y);                       // Hold
-                                                                               // Wait
-        yield return StartCoroutine(FlashOutElement(element, flashTimings.z)); // Flash Out
-                                                                               // Wait
+        Tween flashIn;
+        Tween flashOut;
+
+        seq.Append(flashIn);
+        seq.AppendInterval(flashTimings.y);
+        seq.Append(flashOut);
+
+        return seq;
 
     }
 
-    /// <summary>
-    /// Flashes in a ui element.
-    /// </summary>
-    /// <returns></returns>
-    private IEnumerator FlashInElement(GameObject element, float time)
-    {
-        bool isTweenOver = false; // Boolean to check that the tween is over
-
-        Tween tween = element.transform.DOMove(Vector3.zero, time); // Replace this tween with the real one.
-
-        tween.OnComplete(() => isTweenOver = true); // When the tween completes, flip the boolean to true.
-
-        yield return new WaitUntil(() => isTweenOver == true); // Wait until the tween is over.
-    }
-
-    /// <summary>
-    /// Flashes out a ui element.
-    /// </summary>
-    /// <returns></returns>
-    private IEnumerator FlashOutElement(GameObject element, float time)
-    {
-        bool isTweenOver = false; // Boolean to check that the tween is over
-
-        Tween tween = element.transform.DOMove(Vector3.zero, time); // Replace this tween with the real one.
-
-        tween.OnComplete(() => isTweenOver = true); // When the tween completes, flip the boolean to true.
-
-        yield return new WaitUntil(() => isTweenOver == true); // Wait until the tween is over.
-    }
+   
 
     #endregion
 }

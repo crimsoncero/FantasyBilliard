@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
@@ -31,8 +32,6 @@ public class GameManager : StaticInstance<GameManager>
     public PlayerAction CurrentAction { get; private set; }
     public BallData FirstContact { get; set; }
     public List<BallData> BallsInThisTurn { get; private set; }
-    private bool _checkBallsMoving = false;
-    private bool _ballsMoving = false;
 
 
     private BallType CurrentPlayerBallType { get { return CurrentPlayer == Player.P1 ? P1BallType : P2BallType; } }
@@ -49,8 +48,6 @@ public class GameManager : StaticInstance<GameManager>
     // Update is called once per frame
     void Update()
     {
-        if(CurrentState == GameState.Wait)
-            _ballsMoving = AreBallsMoving();
 
         if (CurrentState == GameState.Player && !IsPausing)
         {
@@ -129,6 +126,7 @@ public class GameManager : StaticInstance<GameManager>
 
     void OnPlayerEnter()
     {
+
         Debug.Log($"On Player Enter : {CurrentPlayer} - {CurrentTurnType}");
         
         BallsInThisTurn = new List<BallData>();
@@ -204,8 +202,11 @@ public class GameManager : StaticInstance<GameManager>
     private IEnumerator OnPlayerExitCoroutine()
     {
         CanShoot = false;
-        yield return new WaitForSeconds(1f);
-        yield return new WaitUntil(() => _ballsMoving == false);
+
+        while (AreBallsMoving())
+        {
+            yield return new WaitForSeconds(0.1f);
+        }
 
 
 
@@ -231,6 +232,10 @@ public class GameManager : StaticInstance<GameManager>
             CurrentPlayer = CurrentPlayer == Player.P1 ? Player.P2 : Player.P1;
             CurrentTurnType = TurnType.Normal;
         }
+
+        Sequence sequence = UiManager.Instance.P1BannerFlash();
+        
+        yield return sequence.WaitForCompletion();
 
         /* Call UI Manager to Show banner for turn switch ---
         *
