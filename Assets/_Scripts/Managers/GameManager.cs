@@ -36,8 +36,10 @@ public class GameManager : StaticInstance<GameManager>
     public List<BallData> BallsInThisTurn { get; private set; }
 
 
+    private bool _usedAbilityTrigger = false;
     private BallType CurrentPlayerBallType { get { return CurrentPlayer == Player.P1 ? P1BallType : P2BallType; } }
     private UiManager UI { get { return UiManager.Instance; } }
+    private AbilityManager AbM { get { return AbilityManager.Instance; } }
 
     private void Start()
     {
@@ -56,6 +58,42 @@ public class GameManager : StaticInstance<GameManager>
         }
     }
 
+    private void LateUpdate()
+    {
+        if (_usedAbilityTrigger)
+        {
+            CueBall.StopAiming();
+            CurrentAction = PlayerAction.Shooting;
+            _usedAbilityTrigger = false;
+        }
+    }
+
+
+
+    public void ToggleAbility(int p)
+    {
+        CueBall.StopAiming();
+        Player player = (Player)p;
+        if (CurrentPlayer != player) return;
+
+        if(CurrentAction == PlayerAction.Ability)
+        {
+            CurrentAction = PlayerAction.Shooting;
+        }
+        else if (CurrentAction == PlayerAction.Shooting)
+        {
+            if (AbM.IsAbilityReady(player))
+            {
+                CurrentAction = PlayerAction.Ability;
+            }
+        }
+    }
+
+    public void UsedAbility()
+    {
+        CueBall.StopAiming();
+        _usedAbilityTrigger = true;
+    }
 
     public void EnteredHole(BallData ballData)
     {
@@ -318,6 +356,9 @@ public class GameManager : StaticInstance<GameManager>
         return false;
 
     }
+
+
+
 }
 
 #region Enums

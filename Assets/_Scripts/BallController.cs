@@ -22,10 +22,6 @@ public class BallController : BallHandler
     [SerializeField] private Sprite _p1CircleSprite;
     [SerializeField] private Sprite _p2CircleSprite;
 
-
-    [Header("Cue Stick Ranges")]
-    [SerializeField] private float _minAim = 0.5f;
-    [SerializeField] private float _maxAim = 50f;
     
     private Vector3 _currentDirVector = Vector3.zero;
     private float _currentForce = 0;
@@ -90,6 +86,11 @@ public class BallController : BallHandler
             Shoot();
             _shootTrigger = false;
         }
+    }
+
+    public void StopAiming()
+    {
+        _isAiming = false;
     }
 
 
