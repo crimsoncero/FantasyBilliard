@@ -34,10 +34,10 @@ public class GameManager : StaticInstance<GameManager>
     public PlayerAction CurrentAction { get; private set; }
     public BallData FirstContact { get; set; }
     public List<BallData> BallsInThisTurn { get; private set; }
+    public BallType CurrentPlayerBallType { get { return CurrentPlayer == Player.P1 ? P1BallType : P2BallType; } }
 
 
     private bool _usedAbilityTrigger = false;
-    private BallType CurrentPlayerBallType { get { return CurrentPlayer == Player.P1 ? P1BallType : P2BallType; } }
     private UiManager UI { get { return UiManager.Instance; } }
     private AbilityManager AbM { get { return AbilityManager.Instance; } }
 
@@ -133,7 +133,7 @@ public class GameManager : StaticInstance<GameManager>
     #region State Machine
     void OnStartingEnter()
     {
-
+        
         // Data Init:
         BallsInGame = new List<BallData>();
         foreach(var ball in Balls)
@@ -165,6 +165,7 @@ public class GameManager : StaticInstance<GameManager>
     private void OnPlayerEnter()
     {
         Debug.Log($"On Player Enter : {CurrentPlayer} - {CurrentTurnType}");
+        CurrentAction = PlayerAction.Starting;
         StartCoroutine(OnPlayerEnterCoroutine());
     }
     private IEnumerator OnPlayerEnterCoroutine()
@@ -173,8 +174,13 @@ public class GameManager : StaticInstance<GameManager>
         BallsInThisTurn = new List<BallData>();
         FirstContact = null;
         TypeSetThisTurn = false;
+        
+        AbM.ReduceCD(CurrentPlayer);
+        if (CurrentTurnType != TurnType.Extra) AbM.ReduceDurations();
 
 
+
+        Debug.Log($"P1 Ability CD: {AbM.ArcaneBarrierCurrentCD} \n P2 Ability CD: {AbM.ShadowShotCurrentCD}");
         //Sequence playerSeq = CurrentPlayer == Player.P1 ? UI.P1Flash : UI.P2Flash;
         yield return null;
 
@@ -215,6 +221,10 @@ public class GameManager : StaticInstance<GameManager>
             case PlayerAction.Ability:
                 CanShoot = false;
                 CanAbility = true;
+                break;
+            case PlayerAction.Starting:
+                CanShoot = false;
+                CanAbility = false;
                 break;
         }
 
@@ -378,6 +388,7 @@ public enum PlayerAction
     Penalty,
     Shooting,
     Ability,
+    Starting,
 }
 public enum GameState
 {

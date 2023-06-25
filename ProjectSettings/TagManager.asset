@@ -11,12 +11,12 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - CueBall
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Solid
+  - Striped
+  - Black
   - 
   - 
   - 

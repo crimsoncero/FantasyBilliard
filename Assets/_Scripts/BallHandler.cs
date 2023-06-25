@@ -80,6 +80,7 @@ public class BallHandler : MonoBehaviour
 
     }
 
+
     public void Appear()
     {
         float appearTime = 3f;
@@ -110,4 +111,6 @@ public class BallHandler : MonoBehaviour
         _rb.GetComponent<MeshRenderer>().material = _material;
         _material.SetTexture("_MainTex", _ballData.Texture);
     }
+
+
 }

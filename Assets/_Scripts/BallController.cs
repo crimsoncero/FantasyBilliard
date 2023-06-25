@@ -88,6 +88,14 @@ public class BallController : BallHandler
         }
     }
 
+    public void SetPhasing(BallType playerBallType, bool arePhasing)
+    {
+        int layerToIgnore = playerBallType == BallType.Striped ? 6 : 7;
+
+
+        Physics.IgnoreLayerCollision(3, layerToIgnore, arePhasing);
+    }
+
     public void StopAiming()
     {
         _isAiming = false;
@@ -116,9 +124,6 @@ public class BallController : BallHandler
     void Shoot()
     {
         Vector3 hitVector = _currentDirVector * (_currentForce * _forceMultiplier);
-
-        Debug.Log($"Shot Info: Init Force : {_currentForce} \n Force Multiplied : {_currentForce * _forceMultiplier}" +
-            $" HitVector : {hitVector}");
 
         _rb.AddForce(hitVector, ForceMode.Impulse);
 
@@ -180,4 +185,6 @@ public class BallController : BallHandler
             }
         }
     }
+
+    
 }

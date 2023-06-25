@@ -14,6 +14,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3053582840737370987, guid: 88e6b91887c774a49a8dff52d5e86288,
         type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3053582840737370987, guid: 88e6b91887c774a49a8dff52d5e86288,
+        type: 3}
       propertyPath: m_TagString
       value: Cue Ball
       objectReference: {fileID: 0}
