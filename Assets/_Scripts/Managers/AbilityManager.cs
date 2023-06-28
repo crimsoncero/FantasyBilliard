@@ -156,7 +156,7 @@ public class AbilityManager : Singleton<AbilityManager>
         Debug.Log("Active barrier duration:" + _activeBarrierDuration);
         if(_activeBarrierDuration <= 0)
         {
-            Destroy(_activeBarrier);
+            Destroy(_activeBarrier.gameObject);
             _activeBarrier = null;
         }
     }

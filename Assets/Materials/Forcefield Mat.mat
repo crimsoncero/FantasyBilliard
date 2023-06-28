@@ -60,5 +60,5 @@ Material:
     - _QueueOffset: 0
     - _Scroll_Speed: 0.1
     m_Colors:
-    - _Emission: {r: 0, g: 2.0048864, b: 3.9999995, a: 0}
+    - _Emission: {r: 3.9999995, g: 0.12987556, b: 0, a: 0}
   m_BuildTextureStacks: []
