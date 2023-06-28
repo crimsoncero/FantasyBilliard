@@ -52,6 +52,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Dissolve: 1
     - _Fill: 0.1
     - _Fresnel_Power: 5
     - _Offset: 0.2

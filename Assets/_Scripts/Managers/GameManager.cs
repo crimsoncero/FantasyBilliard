@@ -68,7 +68,16 @@ public class GameManager : StaticInstance<GameManager>
         }
     }
 
-
+    public void TweenBallDissolve(float dissolve, BallType ballType)
+    {
+        foreach(var ball in Balls)
+        {
+            if (ball.BallData.BallType == ballType && !ball.IsDissolved)
+            {
+                ball.TweenDissolve(dissolve, 0.5f);
+            }
+        }
+    }
 
     public void ToggleAbility(int p)
     {

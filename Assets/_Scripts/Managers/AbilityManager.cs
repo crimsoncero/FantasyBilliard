@@ -156,7 +156,7 @@ public class AbilityManager : Singleton<AbilityManager>
         Debug.Log("Active barrier duration:" + _activeBarrierDuration);
         if(_activeBarrierDuration <= 0)
         {
-            Destroy(_activeBarrier.gameObject);
+            Destroy(_activeBarrier);
             _activeBarrier = null;
         }
     }
@@ -173,10 +173,12 @@ public class AbilityManager : Singleton<AbilityManager>
     {
 
         GM.CueBall.SetPhasing(GM.P2BallType, true);
-
+        GM.TweenBallDissolve(0.5f, GM.P1BallType);
         yield return new WaitUntil(() => GM.CurrentAction == PlayerAction.Starting);
 
         GM.CueBall.SetPhasing(GM.P2BallType, false);
+        GM.TweenBallDissolve(0f, GM.P1BallType);
+
     }
 
 }

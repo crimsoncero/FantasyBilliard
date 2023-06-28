@@ -14,6 +14,7 @@ public class BallHandler : MonoBehaviour
 
 
     public BallData BallData { get { return _ballData; } }
+    public bool IsDissolved { get { return _material.GetFloat("_Dissolve") == 1f; } }
     protected Material _material;
 
 
@@ -64,7 +65,13 @@ public class BallHandler : MonoBehaviour
         }
     }
 
+    public void TweenDissolve(float tarDissolve, float time)
+    {
+        float currDissolve = _material.GetFloat("_Dissolve");
+        if (tarDissolve == currDissolve) return;
+        DOVirtual.Float(currDissolve, tarDissolve, time, v => _material.SetFloat("_Dissolve", v));
 
+    }
 
 
     protected void Vanish()
