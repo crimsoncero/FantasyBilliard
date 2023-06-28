@@ -45,7 +45,7 @@ public class GameManager : StaticInstance<GameManager>
     {
         IsPausing = false;
         CurrentState = GameState.Ending;
-        OnStartingEnter();
+        
     }
  
 
@@ -66,6 +66,13 @@ public class GameManager : StaticInstance<GameManager>
             CurrentAction = PlayerAction.Shooting;
             _usedAbilityTrigger = false;
         }
+    }
+
+    public void StartGame()
+    {
+        IsPausing = false;
+        CurrentState = GameState.Ending;
+        OnStartingEnter();
     }
 
     public void TweenBallDissolve(float dissolve, BallType ballType)
