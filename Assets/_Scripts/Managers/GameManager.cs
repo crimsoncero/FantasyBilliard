@@ -45,7 +45,7 @@ public class GameManager : StaticInstance<GameManager>
     {
         IsPausing = false;
         CurrentState = GameState.Ending;
-        OnStartingEnter();
+        
     }
  
 
@@ -66,6 +66,13 @@ public class GameManager : StaticInstance<GameManager>
             CurrentAction = PlayerAction.Shooting;
             _usedAbilityTrigger = false;
         }
+    }
+
+    public void StartGame()
+    {
+        IsPausing = false;
+        CurrentState = GameState.Ending;
+        OnStartingEnter();
     }
 
     public void TweenBallDissolve(float dissolve, BallType ballType)
@@ -297,7 +304,7 @@ public class GameManager : StaticInstance<GameManager>
             CurrentPlayer = CurrentPlayer == Player.P1 ? Player.P2 : Player.P1;
             CurrentTurnType = TurnType.Penalty;
         }
-        else if (BallsInThisTurn.Count > 0) // Scored a ball - Another turn.
+        else if (BallData.HasType(BallsInThisTurn, CurrentPlayerBallType)) // Scored a ball - Another turn.
         {
             CurrentTurnType = TurnType.Extra;
         }
