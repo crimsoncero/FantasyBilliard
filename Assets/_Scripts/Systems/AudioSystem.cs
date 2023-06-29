@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 /// <summary>
@@ -21,4 +22,5 @@ public class AudioSystem : StaticInstance<AudioSystem> {
     public void PlaySound(AudioClip clip, float vol = 1) {
         _soundsSource.PlayOneShot(clip, vol);
     }
+
 }
