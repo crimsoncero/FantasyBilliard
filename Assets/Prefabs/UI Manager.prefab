@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5766320037988770006
+--- !u!1 &8833935397638342338
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,23 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3456650565307767206}
-  - component: {fileID: 7032386367425318353}
+  - component: {fileID: 8833935397638342339}
+  - component: {fileID: 8833935397638342336}
+  - component: {fileID: 776312156319890996}
   m_Layer: 0
-  m_Name: UIManager
+  m_Name: UI Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &3456650565307767206
+--- !u!4 &8833935397638342339
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5766320037988770006}
+  m_GameObject: {fileID: 8833935397638342338}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -32,17 +33,39 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7032386367425318353
+--- !u!114 &8833935397638342336
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5766320037988770006}
+  m_GameObject: {fileID: 8833935397638342338}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1145412648e1d6d458f2b76756e15b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _UIELEMENTTEXT: {fileID: 0}
+  _p1AbilityCooldownText: {fileID: 0}
+  _p2AbilityCooldownText: {fileID: 0}
+  _p1TurnBanner: {fileID: 0}
+  _p2TurnBanner: {fileID: 0}
+  _p1ExtraTurnBanner: {fileID: 0}
+  _p2ExtraTurnBanner: {fileID: 0}
+  _p1PenaltyBanner: {fileID: 0}
+  _p2PenaltyBanner: {fileID: 0}
+  _p1WinBanner: {fileID: 0}
+  _p2WinBanner: {fileID: 0}
   _genericFlashTiming: {x: 1, y: 2, z: 1}
+--- !u!114 &776312156319890996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8833935397638342338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 071777868e612a849b1d6f5ef0447bac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _menuCamera: {fileID: 0}

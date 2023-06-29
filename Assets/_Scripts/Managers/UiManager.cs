@@ -6,6 +6,8 @@ using TMPro;
 
 public class UiManager : Singleton<UiManager>
 {
+    [SerializeField] private Canvas _uiCanvas;
+
     [Header("UI Cooldown Texts")]
     [SerializeField] private TextMeshProUGUI _p1AbilityCooldownText;
     [SerializeField] private TextMeshProUGUI _p2AbilityCooldownText;
@@ -23,8 +25,10 @@ public class UiManager : Singleton<UiManager>
     [SerializeField] private Vector3 _genericFlashTiming = new Vector3(1f, 0.8f, 1f);
 
 
-
-
+    public void ToggleUI(bool active)
+    {
+        _uiCanvas.enabled = active;
+    }
   
     public void UpdateUI()
     {
