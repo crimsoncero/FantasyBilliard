@@ -1,13 +1,70 @@
 using DG.Tweening;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UiManager : Singleton<UiManager>
 {
-    [SerializeField] private GameObject _UIELEMENTTEXT; // Reference to each of the ui elements (change gameobject to whatever needed to control it
+    [SerializeField] private Image _p1TurnBanner;
+    [SerializeField] private Image _p2TurnBanner;
+    [SerializeField] private Image _p1ExtraTurnBanner;
+    [SerializeField] private Image _p2ExtraTurnBanner;
+    [SerializeField] private Image _p1PenaltyBanner;
+    [SerializeField] private Image _p2PenaltyBanner;
+    [SerializeField] private Vector3 _genericFlashTiming = new Vector3(1f, 0.8f, 1f);  
 
+    
+   
+    public void FlashAlpha(Image banner, Vector3 flashTimings)
+    {
+        Sequence seq = DOTween.Sequence();
 
-    [SerializeField] private Vector3 _genericFlashTiming = new Vector3(1f, 2f, 1f);  // Generic timing for flashing elements - In, Hold, Out.
+        Color originalColor = banner.color;
+
+        
+        banner.gameObject.SetActive(true);
+
+        
+        seq.Append(banner.DOColor(new Color(originalColor.r, originalColor.g, originalColor.b, 1f), flashTimings.x).SetEase(Ease.OutBack));
+
+        
+        seq.AppendInterval(flashTimings.y);
+
+        
+        seq.Append(banner.DOColor(new Color(originalColor.r, originalColor.g, originalColor.b, 0f), flashTimings.z).SetEase(Ease.InBack))
+            .OnComplete(() => banner.gameObject.SetActive(false));
+    }
+    public void P1BannerFlash()
+    {
+        FlashAlpha(_p1TurnBanner, _genericFlashTiming);
+    }
+
+    public void P2BannerFlash()
+    {
+        FlashAlpha(_p2TurnBanner, _genericFlashTiming);
+    }
+
+    public void P1ExtraBannerFlash()
+    {
+        FlashAlpha(_p1ExtraTurnBanner, _genericFlashTiming);
+    }
+
+    public void P2ExtraBannerFlash()
+    {
+        FlashAlpha(_p2ExtraTurnBanner, _genericFlashTiming);
+    }
+
+    public void P1PenaltyBannerFlash()
+    {
+        FlashAlpha(_p1PenaltyBanner, _genericFlashTiming);
+    }
+
+    public void P2PenaltyBannerFlash()
+    {
+        FlashAlpha(_p2PenaltyBanner, _genericFlashTiming);
+    }
+
+}
 
 
     #region API Calls
@@ -47,4 +104,4 @@ public class UiManager : Singleton<UiManager>
    
 
     #endregion
-}
+
