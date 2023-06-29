@@ -3,17 +3,20 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Hole
+  - Cue Ball
+  - PlacementArea
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - CueBall
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Solid
+  - Striped
+  - Black
   - 
   - 
   - 
