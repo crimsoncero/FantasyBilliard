@@ -37,8 +37,6 @@ public class UiManager : Singleton<UiManager>
     }
         
 
-   
-
 
     public void P1BannerFlash()
     {
