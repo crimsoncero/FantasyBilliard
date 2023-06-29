@@ -186,7 +186,7 @@ public class GameManager : StaticInstance<GameManager>
         
         AbM.ReduceCD(CurrentPlayer);
         if (CurrentTurnType != TurnType.Extra) AbM.ReduceDurations();
-
+        UI.UpdateUI();
 
 
         Debug.Log($"P1 Ability CD: {AbM.ArcaneBarrierCurrentCD} \n P2 Ability CD: {AbM.ShadowShotCurrentCD}");
