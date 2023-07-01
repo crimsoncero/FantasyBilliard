@@ -8,15 +8,21 @@ using Unity.Services.Core;
 using Unity.VisualScripting;
 using UnityEngine;
 using Sequence = DG.Tweening.Sequence;
+using UnityEngine.Advertisements;
 
-public class GameManager : StaticInstance<GameManager>
+public class GameManager : StaticInstance<GameManager> ,IUnityAdsInitializationListener, IUnityAdsShowListener
 {
+
+
+
     public BallController CueBall;
     public BallHandler[] Balls;
     public RectTransform PlacementArea;
     public Camera MainCamera;
 
     public Transform[] BallTransforms;
+
+
 
     // Enablers
     public bool CanShoot { get; set; }
@@ -44,6 +50,8 @@ public class GameManager : StaticInstance<GameManager>
     private bool _usedAbilityTrigger = false;
     private UiManager UI { get { return UiManager.Instance; } }
     private AbilityManager AbM { get { return AbilityManager.Instance; } }
+
+    
 
     private void Start()
     {
@@ -185,8 +193,10 @@ public class GameManager : StaticInstance<GameManager>
     #region State Machine
     void OnStartingEnter()
     {
+
+        Advertisement.Show("Interstitial_Android", this);
         //Ball Init:
-        for(int i = 0; i < BallTransforms.Length; i++)
+        for (int i = 0; i < BallTransforms.Length; i++)
         {
             BallTransforms[i].position = _ballsStartPositions[i];
         }
@@ -437,9 +447,37 @@ public class GameManager : StaticInstance<GameManager>
         return false;
 
     }
+    #region Adds Interface
+    public void OnInitializationComplete()
+    {
+        throw new System.NotImplementedException();
+    }
 
+    public void OnInitializationFailed(UnityAdsInitializationError error, string message)
+    {
+        throw new System.NotImplementedException();
+    }
 
+    public void OnUnityAdsShowFailure(string placementId, UnityAdsShowError error, string message)
+    {
+        throw new System.NotImplementedException();
+    }
 
+    public void OnUnityAdsShowStart(string placementId)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void OnUnityAdsShowClick(string placementId)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void OnUnityAdsShowComplete(string placementId, UnityAdsShowCompletionState showCompletionState)
+    {
+        throw new System.NotImplementedException();
+    }
+    #endregion
 }
 
 #region Enums
