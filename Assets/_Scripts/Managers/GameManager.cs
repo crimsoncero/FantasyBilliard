@@ -75,6 +75,26 @@ public class GameManager : StaticInstance<GameManager>
         }
     }
 
+    private void OnApplicationPause(bool pause)
+    {
+        if(pause && CurrentState != GameState.Ending)
+        {
+            Debug.Log("Lost Focus");
+            MenuManager.Instance.PauseToggle(true);
+        }
+
+    }
+
+    private void OnApplicationFocus(bool focus)
+    {
+        if (!focus && CurrentState != GameState.Ending)
+        {
+            Debug.Log("Lost Focus");
+            MenuManager.Instance.PauseToggle(true);
+        }
+
+    }
+
     public void StartGame()
     {
         CurrentState = GameState.Ending;
@@ -91,6 +111,7 @@ public class GameManager : StaticInstance<GameManager>
             }
         }
     }
+
 
     public void ToggleAbility(int p)
     {
