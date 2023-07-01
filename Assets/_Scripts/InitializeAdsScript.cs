@@ -5,7 +5,7 @@ public class InitializeAdsScript : MonoBehaviour
 {
 
     string gameId = "5333361";
-    bool testMode = true;
+    bool testMode = false;
 
     void Awake()
     {
