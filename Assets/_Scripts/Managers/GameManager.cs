@@ -15,7 +15,7 @@ public class GameManager : StaticInstance<GameManager>
     public RectTransform PlacementArea;
     public Camera MainCamera;
 
-
+    public Transform[] BallTransforms;
 
     // Enablers
     public bool CanShoot { get; set; }
@@ -38,6 +38,7 @@ public class GameManager : StaticInstance<GameManager>
 
 
     private PlayerAction _pausedAction = PlayerAction.Starting;
+    private Vector3[] _ballsStartPositions;
 
     private bool _usedAbilityTrigger = false;
     private UiManager UI { get { return UiManager.Instance; } }
@@ -45,6 +46,11 @@ public class GameManager : StaticInstance<GameManager>
 
     private void Start()
     {
+        _ballsStartPositions = new Vector3[BallTransforms.Length];
+        for (int i = 0; i < BallTransforms.Length; i++)
+        {
+            _ballsStartPositions[i] = BallTransforms[i].position;
+        }
         CurrentState = GameState.Ending;
         
     }
@@ -157,7 +163,12 @@ public class GameManager : StaticInstance<GameManager>
     #region State Machine
     void OnStartingEnter()
     {
-        
+        //Ball Init:
+        for(int i = 0; i < BallTransforms.Length; i++)
+        {
+            BallTransforms[i].position = _ballsStartPositions[i];
+        }
+
         // Data Init:
         BallsInGame = new List<BallData>();
         foreach(var ball in Balls)

@@ -20,7 +20,7 @@ public class MenuManager : StaticInstance<MenuManager>
 
     public void Restart()
     {
-        _pauseCanvas.enabled = false;
+        _pauseCanvas.enabled = GM.PauseToggle(false);
         GM.StartGame();
     }
 
@@ -28,7 +28,7 @@ public class MenuManager : StaticInstance<MenuManager>
     {
         UiManager.Instance.ToggleUI(false);
         _menuCamera.enabled = true;
-        _pauseCanvas.enabled = false;
+        _pauseCanvas.enabled = GM.PauseToggle(false);
     }
 
     public void PauseToggle(bool active)
