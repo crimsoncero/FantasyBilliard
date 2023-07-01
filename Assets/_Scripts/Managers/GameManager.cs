@@ -28,7 +28,6 @@ public class GameManager : StaticInstance<GameManager>
     public TurnType CurrentTurnType { get; private set; }
     public BallType P1BallType { get; private set; }
     public BallType P2BallType { get; private set; }
-    public bool IsPausing { get; private set; }
     public bool TypeSetThisTurn { get; private set; }
 
     // Turn Data
@@ -38,13 +37,14 @@ public class GameManager : StaticInstance<GameManager>
     public BallType CurrentPlayerBallType { get { return CurrentPlayer == Player.P1 ? P1BallType : P2BallType; } }
 
 
+    private PlayerAction _pausedAction = PlayerAction.Starting;
+
     private bool _usedAbilityTrigger = false;
     private UiManager UI { get { return UiManager.Instance; } }
     private AbilityManager AbM { get { return AbilityManager.Instance; } }
 
     private void Start()
     {
-        IsPausing = false;
         CurrentState = GameState.Ending;
         
     }
@@ -53,7 +53,7 @@ public class GameManager : StaticInstance<GameManager>
     // Update is called once per frame
     void Update()
     {
-        if (CurrentState == GameState.Player && !IsPausing)
+        if (CurrentState == GameState.Player)
         {
             OnPlayerUpdate();
         }
@@ -71,7 +71,6 @@ public class GameManager : StaticInstance<GameManager>
 
     public void StartGame()
     {
-        IsPausing = false;
         CurrentState = GameState.Ending;
         OnStartingEnter();
     }
@@ -137,23 +136,21 @@ public class GameManager : StaticInstance<GameManager>
         }
     }
 
-    public void PauseToggle(bool state)
+    public bool PauseToggle(bool state)
     {
         CueBall.StopAiming();
         if(state == true)
         {
             if(CurrentState == GameState.Player)
             {
-                CurrentState = GameState.Pause;
+                _pausedAction = CurrentAction;
+                CurrentAction = PlayerAction.Pausing;
+                return true;
             }
         }
-        else
-        {
-            if(CurrentState == GameState.Pause)
-            {
-                CurrentState = GameState.Player;
-            }
-        }
+
+        CurrentAction = _pausedAction;
+        return false;
     }
 
 
@@ -251,6 +248,10 @@ public class GameManager : StaticInstance<GameManager>
                 CanAbility = true;
                 break;
             case PlayerAction.Starting:
+                CanShoot = false;
+                CanAbility = false;
+                break;
+            case PlayerAction.Pausing:
                 CanShoot = false;
                 CanAbility = false;
                 break;
@@ -426,13 +427,13 @@ public enum PlayerAction
     Shooting,
     Ability,
     Starting,
+    Pausing,
 }
 public enum GameState
 {
     Starting,
     Player,
     Ending,
-    Pause,
     Wait,
 }
 #endregion
