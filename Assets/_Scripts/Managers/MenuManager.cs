@@ -6,7 +6,7 @@ public class MenuManager : StaticInstance<MenuManager>
 {
     [SerializeField] private Camera _menuCamera;
     [SerializeField] private Canvas _pauseCanvas;
-
+    [SerializeField] private Canvas _mainMenuCanvas;
 
     public GameManager GM { get { return GameManager.Instance; } }
 
@@ -14,6 +14,7 @@ public class MenuManager : StaticInstance<MenuManager>
     public void StartGame()
     {
         _menuCamera.enabled = false;
+        _mainMenuCanvas.enabled = false;
         UiManager.Instance.ToggleUI(true);
         GM.StartGame();
     }
@@ -28,6 +29,7 @@ public class MenuManager : StaticInstance<MenuManager>
     {
         UiManager.Instance.ToggleUI(false);
         _menuCamera.enabled = true;
+        _mainMenuCanvas.enabled = true;
         _pauseCanvas.enabled = GM.PauseToggle(false);
     }
 
