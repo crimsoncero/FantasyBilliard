@@ -33,7 +33,7 @@ public class MenuManager : StaticInstance<MenuManager>
 
     public void PauseToggle(bool active)
     {
-        //GM.PauseToggle(active);
+        GM.PauseToggle(active);
         _pauseCanvas.enabled = active;
     }
 }

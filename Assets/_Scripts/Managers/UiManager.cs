@@ -38,37 +38,47 @@ public class UiManager : Singleton<UiManager>
         
 
 
-    public void P1BannerFlash()
+    public Sequence P1BannerFlash()
     {
-        FlashAlpha(_p1TurnBanner, _genericFlashTiming);
+       return FlashAlpha(_p1TurnBanner, _genericFlashTiming);
+       
     }
 
-    public void P2BannerFlash()
+    public Sequence P2BannerFlash()
     {
-        FlashAlpha(_p2TurnBanner, _genericFlashTiming);
+        return FlashAlpha(_p2TurnBanner, _genericFlashTiming);
     }
 
-    public void P1ExtraBannerFlash()
+    public Sequence P1ExtraBannerFlash()
     {
-        FlashAlpha(_p1ExtraTurnBanner, _genericFlashTiming);
+        return FlashAlpha(_p1ExtraTurnBanner, _genericFlashTiming);
     }
 
-    public void P2ExtraBannerFlash()
+    public Sequence P2ExtraBannerFlash()
     {
-        FlashAlpha(_p2ExtraTurnBanner, _genericFlashTiming);
+        return FlashAlpha(_p2ExtraTurnBanner, _genericFlashTiming);
     }
 
-    public void P1PenaltyBannerFlash()
+    public Sequence P1PenaltyBannerFlash()
     {
-        FlashAlpha(_p1PenaltyBanner, _genericFlashTiming);
+        return FlashAlpha(_p1PenaltyBanner, _genericFlashTiming);
     }
 
-    public void P2PenaltyBannerFlash()
+    public Sequence P2PenaltyBannerFlash()
     {
-        FlashAlpha(_p2PenaltyBanner, _genericFlashTiming);
+        return FlashAlpha(_p2PenaltyBanner, _genericFlashTiming);
     }
 
-    private void FlashAlpha(Image banner, Vector3 flashTimings)
+    public Sequence P1WinFlash()
+    {
+        return FlashAlpha(_p1WinBanner, _genericFlashTiming);
+    }
+    public Sequence P2WinFlash()
+    {
+        return FlashAlpha(_p2WinBanner, _genericFlashTiming);
+    }
+
+    private Sequence FlashAlpha(Image banner, Vector3 flashTimings)
     {
         Sequence seq = DOTween.Sequence();
 
@@ -86,6 +96,8 @@ public class UiManager : Singleton<UiManager>
 
         seq.Append(banner.DOColor(new Color(originalColor.r, originalColor.g, originalColor.b, 0f), flashTimings.z).SetEase(Ease.InBack))
             .OnComplete(() => banner.gameObject.SetActive(false));
+
+        return seq;
     }
 
     private void UpdateCDText(TextMeshProUGUI text,float val)

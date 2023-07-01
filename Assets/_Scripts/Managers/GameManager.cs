@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Unity.Burst.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
+using Sequence = DG.Tweening.Sequence;
 
 public class GameManager : StaticInstance<GameManager>
 {
@@ -136,13 +137,23 @@ public class GameManager : StaticInstance<GameManager>
         }
     }
 
-    public void PauseToggle()
+    public void PauseToggle(bool state)
     {
-        IsPausing = !IsPausing;
-        if (IsPausing)
+        CueBall.StopAiming();
+        if(state == true)
         {
-
-        }   
+            if(CurrentState == GameState.Player)
+            {
+                CurrentState = GameState.Pause;
+            }
+        }
+        else
+        {
+            if(CurrentState == GameState.Pause)
+            {
+                CurrentState = GameState.Player;
+            }
+        }
     }
 
 
@@ -197,23 +208,24 @@ public class GameManager : StaticInstance<GameManager>
 
 
         Debug.Log($"P1 Ability CD: {AbM.ArcaneBarrierCurrentCD} \n P2 Ability CD: {AbM.ShadowShotCurrentCD}");
-        //Sequence playerSeq = CurrentPlayer == Player.P1 ? UI.P1Flash : UI.P2Flash;
         yield return null;
 
 
         switch (CurrentTurnType)
         {
             case TurnType.Normal:
-                //yield return playerSeq.WaitForCompletion();
+                Sequence seqNormal = CurrentPlayer == Player.P1 ? UI.P1BannerFlash() : UI.P2BannerFlash();
+                yield return seqNormal.Play().WaitForCompletion();
                 CurrentAction = PlayerAction.Shooting;
                 break;
             case TurnType.Extra:
-                //yield return UI.ExtraFlash().WaitForCompletion();
+                Sequence seqExtra = CurrentPlayer == Player.P1 ? UI.P1ExtraBannerFlash() : UI.P2ExtraBannerFlash();
+                yield return seqExtra.Play().WaitForCompletion(); 
                 CurrentAction = PlayerAction.Shooting;
                 break;
             case TurnType.Penalty:
-                //yield return UI.PenaltyFlash().WaitForCompletion();
-                //yield return playerSeq.WaitForCompletion();
+                Sequence seqPenalty = CurrentPlayer == Player.P1 ? UI.P1PenaltyBannerFlash() : UI.P2PenaltyBannerFlash();
+                yield return seqPenalty.Play().WaitForCompletion();
                 CurrentAction = PlayerAction.Penalty;
                 break;
         }
@@ -337,7 +349,12 @@ public class GameManager : StaticInstance<GameManager>
         return false;
     }
 
-    void OnEndingEnter(bool isWinner)
+    private void OnEndingEnter(bool isWinner)
+    {
+        StartCoroutine(OnEndingCoroutine(isWinner));
+    }
+
+    private IEnumerator OnEndingCoroutine(bool isWinner)
     {
         CurrentState = GameState.Ending;
         if (isWinner)
@@ -345,10 +362,12 @@ public class GameManager : StaticInstance<GameManager>
             if(CurrentPlayer == Player.P1)
             {
                 Debug.Log("P1 Wins");
+                yield return UI.P1WinFlash().Play().WaitForCompletion();
             }
             else
             {
                 Debug.Log("P2 Wins");
+                yield return UI.P2WinFlash().Play().WaitForCompletion();
             }
         }
         else
@@ -356,10 +375,12 @@ public class GameManager : StaticInstance<GameManager>
             if (CurrentPlayer == Player.P1)
             {
                 Debug.Log("P2 Wins");
+                yield return UI.P2WinFlash().Play().WaitForCompletion();
             }
             else
             {
                 Debug.Log("P1 Wins");
+                yield return UI.P1WinFlash().Play().WaitForCompletion();
             }
         }
 
