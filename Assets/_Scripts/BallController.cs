@@ -1,6 +1,7 @@
 using DG.Tweening;
 using Unity.Burst.CompilerServices;
 using Unity.Mathematics;
+using Unity.Services.Analytics;
 using UnityEngine;
 
 public class BallController : BallHandler
@@ -57,6 +58,7 @@ public class BallController : BallHandler
                 // Second Touch Registered, disable aiming
                 if (Input.touchCount > 1)
                 {
+                    AnalyticsService.Instance.CustomData("ShotCancelled");
                     _isAiming = false;
                 }
                 // First Touch Moved:

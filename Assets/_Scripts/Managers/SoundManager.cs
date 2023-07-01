@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Services.Analytics;
 using UnityEngine;
 
 public class SoundManager : StaticInstance<SoundManager>
@@ -19,6 +20,7 @@ public class SoundManager : StaticInstance<SoundManager>
 
     private AudioClip ChooseClip()
     {
+        AnalyticsService.Instance.CustomData("TrackChanged");
         int clipIndex = Random.Range(0, _BGM.Length);
         return _BGM[clipIndex];
     }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Services.Analytics;
 using UnityEngine;
 
 public class AbilityManager : Singleton<AbilityManager>
@@ -138,6 +139,7 @@ public class AbilityManager : Singleton<AbilityManager>
                         _activeBarrier = Instantiate(_arcaneBarrierPrefab, (new Vector3(hit.point.x, 0, hit.point.z)), Quaternion.identity);
                         ArcaneBarrierCurrentCD = _arcaneBarrierCooldown;
                         _activeBarrierDuration = _arcaneBarrierDuration;
+                        AnalyticsService.Instance.CustomData("UsedBarrier");
                         return true;
                     }
                 }
@@ -166,6 +168,7 @@ public class AbilityManager : Singleton<AbilityManager>
         if (GM.P2BallType == BallType.None) return false;
         ShadowShotCurrentCD = _shadowShotCooldown;
         StartCoroutine(ShadowShotCoroutine());
+        AnalyticsService.Instance.CustomData("UsedShadowShot");
         return true;
     }
 
